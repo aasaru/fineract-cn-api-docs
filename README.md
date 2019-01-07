@@ -9,19 +9,21 @@ NB! This is still currently work in progress
 
 * [Identity](https://aasaru.github.io/fineract-cn-api-docs/src/main/resources/doc/html5/identity.html)
 * [Customer](https://aasaru.github.io/fineract-cn-api-docs/src/main/resources/doc/html5/customer.html) - partly
-* to be generated
+* ... rest yet to be generated ...
 
 
-## Re
+## Re-generate the docs
 
-1. Clone this project next to other fineract-cn projects. You need to have following directory structure
+1. Clone this project next to other fineract-cn- projects. You need to have following directory structure:
 
+ 
+```
 your_workspace_dir/fineract-cn-api-docs
-
 your_workspace_dir/fineract-cn-identity
-
 your_workspace_dir/fineract-cn-customer
 ...
+ 
+```
 
 1. You need to have Cassandra and MySQL/MariaDB running
 
