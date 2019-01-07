@@ -5,17 +5,21 @@ This project contains both latest generated documentation as well as instruction
 
 NB! This is still currently work in progress 
 
-## IF YOU WANT TO BROWSE THE DOCS
+## Browsing the docs
 
-Look at [here](src/main/resources/doc/html5)
+* [Identity](https://aasaru.github.io/fineract-cn-api-docs/src/main/resources/doc/html5/identity.html)
+* [Customer](https://aasaru.github.io/fineract-cn-api-docs/src/main/resources/doc/html5/customer.html) - partly
+* to be generated
 
 
-## IF YOU WANT TO RE-GENERATE
+## Re
 
-1. Check out this project next to other folders. You need to have following directory structure
+1. Clone this project next to other fineract-cn projects. You need to have following directory structure
 
 your_workspace_dir/fineract-cn-api-docs
+
 your_workspace_dir/fineract-cn-identity
+
 your_workspace_dir/fineract-cn-customer
 ...
 
@@ -25,7 +29,7 @@ your_workspace_dir/fineract-cn-customer
 
 https://cwiki.apache.org/confluence/display/FINERACT/Apache+Fineract+CN+API+Documentation
 
-  * For this right click in your IDE and click RUN
+1. For this right click in your IDE and click RUN
   
 1. Under build/doc/generated-snippets/{module name} there are folders 
 
