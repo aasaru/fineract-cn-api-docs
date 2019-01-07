@@ -1,0 +1,23 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        classpath("org.asciidoctor:asciidoctor-gradle-plugin:1.5.3")
+    }
+}
+
+apply plugin: 'org.asciidoctor.convert'
+
+dependencies {
+
+}
+
+asciidoctor {
+    sourceDir 'src/main/asciidoc/'
+    outputDir 'src/main/resources/doc'
+    options backend: "html", doctype: "book"
+    attributes "source-highlighter": "highlightjs", \
+                'snippets': file('../')
+}

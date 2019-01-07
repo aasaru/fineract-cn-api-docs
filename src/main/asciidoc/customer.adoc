@@ -1,0 +1,8 @@
+= customer-cn documentation
+
+.request
+include::{snippets}/fineract-cn-customer/component-test/build/doc/generated-snippets/test-identification-cards/document-create-id-card/http-request.adoc[]
+
+.response
+include::{snippets}/fineract-cn-customer/component-test/build/doc/generated-snippets/test-identification-cards/document-create-id-card/http-response.adoc[]
+
