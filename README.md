@@ -28,7 +28,7 @@ your_workspace_dir/
 
 1. You need to run the classes in this table:
 
-https://cwiki.apache.org/confluence/display/FINERACT/Apache+Fineract+CN+API+Documentation
+    https://cwiki.apache.org/confluence/display/FINERACT/Apache+Fineract+CN+API+Documentation
 
 1. For this right click in your IDE and click RUN (some don't work this way - need yet to solve)
   
