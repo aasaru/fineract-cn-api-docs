@@ -5,7 +5,7 @@
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.3">
-<title>identity-cn documentation</title>
+<title>deposit-account-management-cn documentation</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
@@ -419,7 +419,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="book">
 <div id="header">
-<h1>identity-cn documentation</h1>
+<h1>deposit-account-management-cn documentation</h1>
 </div>
 <div id="content">
 <div id="preamble">
@@ -427,15 +427,33 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="listingblock">
 <div class="title">request</div>
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">PUT /applications/test670-v1/callendpointset/end_pt_set16 HTTP/1.1
+<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">POST /instances/CustomerYjB.91xx.00001 HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+Host: localhost:8080
+
+command=ACTIVATE</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">response</div>
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 202 Accepted</code></pre>
+</div>
+</div>
+<hr>
+<div class="listingblock">
+<div class="title">request</div>
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">POST /definitions/pdtDefUpkY/commands HTTP/1.1
+Content-Type: application/json
 Accept: */*
-Content-Type: application/json
 Host: localhost:8080
-Content-Length: 103
+Content-Length: 50
 
 {
-  "identifier" : "end_pt_set16",
-  "permittableEndpointGroupIdentifiers" : [ "ideeOne", "ideeTwo" ]
+  "action" : "ACTIVATE",
+  "note" : "Notewolr"
 }</code></pre>
 </div>
 </div>
@@ -449,15 +467,12 @@ Content-Length: 103
 <div class="listingblock">
 <div class="title">request</div>
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">PUT /users/Daddy/password HTTP/1.1
+<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">POST /instances/Customer1bf.91xx.00001 HTTP/1.1
+Content-Type: application/json
 Accept: application/json
-Content-Type: application/json
 Host: localhost:8080
-Content-Length: 37
 
-{
-  "password" : "c2VraGVtRGFkZHk="
-}</code></pre>
+command=CLOSE</code></pre>
 </div>
 </div>
 <div class="listingblock">
@@ -470,14 +485,17 @@ Content-Length: 37
 <div class="listingblock">
 <div class="title">request</div>
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">PUT /users/Ahmes_friend_One/roleIdentifier HTTP/1.1
+<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">POST /actions HTTP/1.1
+Content-Type: application/json
 Accept: application/json
-Content-Type: application/json
 Host: localhost:8080
-Content-Length: 30
+Content-Length: 129
 
 {
-  "identifier" : "cobbler"
+  "identifier" : "Acce4",
+  "name" : "ActionVwN",
+  "description" : "Action's Description 6MJN",
+  "transactionType" : "ACCO"
 }</code></pre>
 </div>
 </div>
@@ -491,15 +509,16 @@ Content-Length: 30
 <div class="listingblock">
 <div class="title">request</div>
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">POST /applications/test435-v1/callendpointset HTTP/1.1
+<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">POST /instances HTTP/1.1
+Content-Type: application/json
 Accept: application/json
-Content-Type: application/json
 Host: localhost:8080
-Content-Length: 82
+Content-Length: 136
 
 {
-  "identifier" : "end_pt_set15",
-  "permittableEndpointGroupIdentifiers" : [ ]
+  "customerIdentifier" : "Customer7mW",
+  "productIdentifier" : "pdtDefyTxn",
+  "beneficiaries" : [ "BenefiaryN8m", "Benefiary7No" ]
 }</code></pre>
 </div>
 </div>
@@ -513,15 +532,70 @@ Content-Length: 82
 <div class="listingblock">
 <div class="title">request</div>
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">POST /applications/testApp879-v1/permissions HTTP/1.1
+<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">POST /definitions HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+Host: localhost:8080
+Content-Length: 903
+
+{
+  "type" : "SAVINGS",
+  "identifier" : "pdtDefsOpl",
+  "name" : "PdtName bWwRGo",
+  "description" : "Product DescriptionXTzui7nO",
+  "currency" : {
+    "code" : "USD",
+    "name" : "US Dollar",
+    "sign" : "$",
+    "scale" : 3
+  },
+  "minimumBalance" : 50.0,
+  "equityLedgerIdentifier" : "91xx",
+  "cashAccountIdentifier" : "76xx",
+  "expenseAccountIdentifier" : "38xx",
+  "accrueAccountIdentifier" : "82xx",
+  "interest" : 1.25,
+  "term" : {
+    "period" : 12,
+    "timeUnit" : "MONTH",
+    "interestPayable" : "MATURITY"
+  },
+  "charges" : [ {
+    "actionIdentifier" : "Close",
+    "incomeAccountIdentifier" : "10123",
+    "name" : "Closing Account Fee",
+    "proportional" : false,
+    "amount" : 2.0
+  }, {
+    "actionIdentifier" : "Open",
+    "incomeAccountIdentifier" : "10123",
+    "name" : "Opening Account Charge",
+    "proportional" : false,
+    "amount" : 2.0
+  } ],
+  "flexible" : false
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">response</div>
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 202 Accepted</code></pre>
+</div>
+</div>
+<hr>
+<div class="listingblock">
+<div class="title">request</div>
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">POST /definitions/pdtDef6wrE/commands HTTP/1.1
+Content-Type: application/json
 Accept: */*
-Content-Type: application/json
 Host: localhost:8080
-Content-Length: 102
+Content-Length: 52
 
 {
-  "permittableEndpointGroupIdentifier" : "identity__v1__users",
-  "allowedOperations" : [ "READ" ]
+  "action" : "DEACTIVATE",
+  "note" : "Note5fhc"
 }</code></pre>
 </div>
 </div>
@@ -535,84 +609,9 @@ Content-Length: 102
 <div class="listingblock">
 <div class="title">request</div>
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">POST /permittablegroups HTTP/1.1
-Accept: application/json
+<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">DELETE /definitions/pdtDef5HOU HTTP/1.1
 Content-Type: application/json
-Host: localhost:8080
-Content-Length: 188
-
-{
-  "identifier" : "group1",
-  "permittables" : [ {
-    "path" : "/exx/eyy/eze",
-    "method" : "POST",
-    "groupId" : "id",
-    "acceptTokenIntendedForForeignApplication" : false
-  } ]
-}</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">response</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 202 Accepted</code></pre>
-</div>
-</div>
-<hr>
-<div class="listingblock">
-<div class="title">request</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">POST /roles HTTP/1.1
-Accept: application/json
-Content-Type: application/json
-Host: localhost:8080
-Content-Length: 182
-
-{
-  "identifier" : "scribe8",
-  "permissions" : [ {
-    "permittableEndpointGroupIdentifier" : "identity__v1__roles",
-    "allowedOperations" : [ "READ", "CHANGE", "DELETE" ]
-  } ]
-}</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">response</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 202 Accepted</code></pre>
-</div>
-</div>
-<hr>
-<div class="listingblock">
-<div class="title">request</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">POST /users HTTP/1.1
-Accept: application/json
-Content-Type: application/json
-Host: localhost:8080
-Content-Length: 93
-
-{
-  "identifier" : "Ahmes_friend_zero",
-  "role" : "scribe_zero",
-  "password" : "c2VraGVt"
-}</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">response</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 202 Accepted</code></pre>
-</div>
-</div>
-<hr>
-<div class="listingblock">
-<div class="title">request</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">DELETE /applications/test099-v1 HTTP/1.1
 Accept: */*
-Content-Type: application/json
 Host: localhost:8080</code></pre>
 </div>
 </div>
@@ -626,57 +625,9 @@ Host: localhost:8080</code></pre>
 <div class="listingblock">
 <div class="title">request</div>
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">DELETE /applications/test052-v1/callendpointset/end_pt_set19 HTTP/1.1
-Accept: */*
+<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">GET /actions HTTP/1.1
 Content-Type: application/json
-Host: localhost:8080</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">response</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 202 Accepted</code></pre>
-</div>
-</div>
-<hr>
-<div class="listingblock">
-<div class="title">request</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">DELETE /applications/testApp010-v1/permissions/identity__v1__users HTTP/1.1
 Accept: */*
-Content-Type: application/json
-Host: localhost:8080</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">response</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 202 Accepted</code></pre>
-</div>
-</div>
-<hr>
-<div class="listingblock">
-<div class="title">request</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">DELETE /roles/scribe10 HTTP/1.1
-Accept: */*
-Content-Type: application/json
-Host: localhost:8080</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">response</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 202 Accepted</code></pre>
-</div>
-</div>
-<hr>
-<div class="listingblock">
-<div class="title">request</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">GET /permittablegroups HTTP/1.1
-Accept: */*
-Content-Type: application/json
 Host: localhost:8080</code></pre>
 </div>
 </div>
@@ -685,172 +636,33 @@ Host: localhost:8080</code></pre>
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
-Content-Length: 4985
+Content-Length: 577
 
 [ {
-  "identifier" : "identity__v1__roles",
-  "permittables" : [ {
-    "path" : "identity-v1/roles/*",
-    "method" : "GET",
-    "groupId" : null,
-    "acceptTokenIntendedForForeignApplication" : false
-  }, {
-    "path" : "identity-v1/roles/*",
-    "method" : "POST",
-    "groupId" : null,
-    "acceptTokenIntendedForForeignApplication" : false
-  }, {
-    "path" : "identity-v1/roles/*",
-    "method" : "PUT",
-    "groupId" : null,
-    "acceptTokenIntendedForForeignApplication" : false
-  }, {
-    "path" : "identity-v1/roles/*",
-    "method" : "DELETE",
-    "groupId" : null,
-    "acceptTokenIntendedForForeignApplication" : false
-  }, {
-    "path" : "identity-v1/permittablegroups/*",
-    "method" : "GET",
-    "groupId" : null,
-    "acceptTokenIntendedForForeignApplication" : false
-  }, {
-    "path" : "identity-v1/permittablegroups/*",
-    "method" : "POST",
-    "groupId" : null,
-    "acceptTokenIntendedForForeignApplication" : false
-  }, {
-    "path" : "identity-v1/permittablegroups/*",
-    "method" : "PUT",
-    "groupId" : null,
-    "acceptTokenIntendedForForeignApplication" : false
-  }, {
-    "path" : "identity-v1/permittablegroups/*",
-    "method" : "DELETE",
-    "groupId" : null,
-    "acceptTokenIntendedForForeignApplication" : false
-  } ]
+  "identifier" : "Open",
+  "name" : "Account Opening",
+  "description" : null,
+  "transactionType" : "ACCO"
 }, {
-  "identifier" : "identity__v1__self",
-  "permittables" : [ {
-    "path" : "identity-v1/users/{useridentifier}/password",
-    "method" : "GET",
-    "groupId" : null,
-    "acceptTokenIntendedForForeignApplication" : false
-  }, {
-    "path" : "identity-v1/users/{useridentifier}/password",
-    "method" : "POST",
-    "groupId" : null,
-    "acceptTokenIntendedForForeignApplication" : false
-  }, {
-    "path" : "identity-v1/users/{useridentifier}/password",
-    "method" : "PUT",
-    "groupId" : null,
-    "acceptTokenIntendedForForeignApplication" : false
-  }, {
-    "path" : "identity-v1/users/{useridentifier}/password",
-    "method" : "DELETE",
-    "groupId" : null,
-    "acceptTokenIntendedForForeignApplication" : false
-  }, {
-    "path" : "identity-v1/applications/*/permissions/*/users/{useridentifier}/enabled",
-    "method" : "GET",
-    "groupId" : null,
-    "acceptTokenIntendedForForeignApplication" : false
-  }, {
-    "path" : "identity-v1/applications/*/permissions/*/users/{useridentifier}/enabled",
-    "method" : "POST",
-    "groupId" : null,
-    "acceptTokenIntendedForForeignApplication" : false
-  }, {
-    "path" : "identity-v1/applications/*/permissions/*/users/{useridentifier}/enabled",
-    "method" : "PUT",
-    "groupId" : null,
-    "acceptTokenIntendedForForeignApplication" : false
-  }, {
-    "path" : "identity-v1/applications/*/permissions/*/users/{useridentifier}/enabled",
-    "method" : "DELETE",
-    "groupId" : null,
-    "acceptTokenIntendedForForeignApplication" : false
-  } ]
+  "identifier" : "Transfer",
+  "name" : "Account Transfer",
+  "description" : null,
+  "transactionType" : "ACCT"
 }, {
-  "identifier" : "identity__v1__users",
-  "permittables" : [ {
-    "path" : "identity-v1/users/*",
-    "method" : "GET",
-    "groupId" : null,
-    "acceptTokenIntendedForForeignApplication" : false
-  }, {
-    "path" : "identity-v1/users/*",
-    "method" : "POST",
-    "groupId" : null,
-    "acceptTokenIntendedForForeignApplication" : false
-  }, {
-    "path" : "identity-v1/users/*",
-    "method" : "PUT",
-    "groupId" : null,
-    "acceptTokenIntendedForForeignApplication" : false
-  }, {
-    "path" : "identity-v1/users/*",
-    "method" : "DELETE",
-    "groupId" : null,
-    "acceptTokenIntendedForForeignApplication" : false
-  } ]
+  "identifier" : "Close",
+  "name" : "Account Closing",
+  "description" : null,
+  "transactionType" : "ACCC"
 }, {
-  "identifier" : "pgroup4",
-  "permittables" : [ {
-    "path" : "/exx/eyy/eze",
-    "method" : "POST",
-    "groupId" : "id",
-    "acceptTokenIntendedForForeignApplication" : false
-  } ]
+  "identifier" : "Deposit",
+  "name" : "Cash Deposit",
+  "description" : null,
+  "transactionType" : "CDPT"
 }, {
-  "identifier" : "pgroup14",
-  "permittables" : [ {
-    "path" : "/exx/eyy/eze",
-    "method" : "POST",
-    "groupId" : "id",
-    "acceptTokenIntendedForForeignApplication" : false
-  } ]
-}, {
-  "identifier" : "identity__v1__app_self",
-  "permittables" : [ {
-    "path" : "identity-v1/applications/{applicationidentifier}/permissions",
-    "method" : "GET",
-    "groupId" : null,
-    "acceptTokenIntendedForForeignApplication" : false
-  }, {
-    "path" : "identity-v1/applications/{applicationidentifier}/permissions",
-    "method" : "POST",
-    "groupId" : null,
-    "acceptTokenIntendedForForeignApplication" : false
-  }, {
-    "path" : "identity-v1/applications/{applicationidentifier}/permissions",
-    "method" : "PUT",
-    "groupId" : null,
-    "acceptTokenIntendedForForeignApplication" : false
-  }, {
-    "path" : "identity-v1/applications/{applicationidentifier}/permissions",
-    "method" : "DELETE",
-    "groupId" : null,
-    "acceptTokenIntendedForForeignApplication" : false
-  } ]
-}, {
-  "identifier" : "group1",
-  "permittables" : [ {
-    "path" : "/exx/eyy/eze",
-    "method" : "POST",
-    "groupId" : "id",
-    "acceptTokenIntendedForForeignApplication" : false
-  } ]
-}, {
-  "identifier" : "pgroup13",
-  "permittables" : [ {
-    "path" : "/exx/eyy/eze",
-    "method" : "POST",
-    "groupId" : "id",
-    "acceptTokenIntendedForForeignApplication" : false
-  } ]
+  "identifier" : "Withdraw",
+  "name" : "Cash Withdrawal",
+  "description" : null,
+  "transactionType" : "CWDL"
 } ]</code></pre>
 </div>
 </div>
@@ -858,243 +670,9 @@ Content-Length: 4985
 <div class="listingblock">
 <div class="title">request</div>
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">GET /users HTTP/1.1
-Accept: */*
-Content-Type: application/json
-Host: localhost:8080</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">response</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
-Content-Type: application/json;charset=UTF-8
-Content-Length: 231
-
-[ {
-  "identifier" : "Ahmes5",
-  "role" : "pharaoh"
-}, {
-  "identifier" : "Ahmes_Other_friend",
-  "role" : "cobbler"
-}, {
-  "identifier" : "antony",
-  "role" : "pharaoh"
-}, {
-  "identifier" : "Ahmes_friend",
-  "role" : "scribe"
-} ]</code></pre>
-</div>
-</div>
-<hr>
-<div class="listingblock">
-<div class="title">request</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">GET /permittablegroups/pgroup4 HTTP/1.1
-Accept: */*
-Content-Type: application/json
-Host: localhost:8080</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">response</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
-Content-Type: application/json;charset=UTF-8
-Content-Length: 189
-
-{
-  "identifier" : "pgroup4",
-  "permittables" : [ {
-    "path" : "/exx/eyy/eze",
-    "method" : "POST",
-    "groupId" : "id",
-    "acceptTokenIntendedForForeignApplication" : false
-  } ]
-}</code></pre>
-</div>
-</div>
-<hr>
-<div class="listingblock">
-<div class="title">request</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">GET /roles HTTP/1.1
-Accept: */*
-Content-Type: application/json
-Host: localhost:8080</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">response</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
-Content-Type: application/json;charset=UTF-8
-Content-Length: 1131
-
-[ {
-  "identifier" : "pharaoh",
-  "permissions" : [ {
-    "permittableEndpointGroupIdentifier" : "identity__v1__roles",
-    "allowedOperations" : [ "READ", "CHANGE", "DELETE" ]
-  }, {
-    "permittableEndpointGroupIdentifier" : "identity__v1__users",
-    "allowedOperations" : [ "READ", "CHANGE", "DELETE" ]
-  }, {
-    "permittableEndpointGroupIdentifier" : "identity__v1__self",
-    "allowedOperations" : [ "READ", "CHANGE", "DELETE" ]
-  }, {
-    "permittableEndpointGroupIdentifier" : "identity__v1__app_self",
-    "allowedOperations" : [ "READ", "CHANGE", "DELETE" ]
-  } ]
-}, {
-  "identifier" : "scribe11",
-  "permissions" : [ {
-    "permittableEndpointGroupIdentifier" : "identity__v1__roles",
-    "allowedOperations" : [ "READ", "CHANGE", "DELETE" ]
-  } ]
-}, {
-  "identifier" : "scribe6",
-  "permissions" : [ {
-    "permittableEndpointGroupIdentifier" : "identity__v1__roles",
-    "allowedOperations" : [ "READ", "CHANGE", "DELETE" ]
-  } ]
-}, {
-  "identifier" : "scribe8",
-  "permissions" : [ {
-    "permittableEndpointGroupIdentifier" : "identity__v1__roles",
-    "allowedOperations" : [ "READ", "CHANGE", "DELETE" ]
-  } ]
-} ]</code></pre>
-</div>
-</div>
-<hr>
-<div class="listingblock">
-<div class="title">request</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">GET /users/Ahmes_friend_three HTTP/1.1
-Accept: */*
-Content-Type: application/json
-Host: localhost:8080</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">response</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
-Content-Type: application/json;charset=UTF-8
-Content-Length: 68
-
-{
-  "identifier" : "Ahmes_friend_three",
-  "role" : "scribe_three"
-}</code></pre>
-</div>
-</div>
-<hr>
-<div class="listingblock">
-<div class="title">request</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">GET /applications/test983-v1/callendpointset/end_pt_set17 HTTP/1.1
-Accept: */*
-Content-Type: application/json
-Host: localhost:8080</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">response</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
-Content-Type: application/json;charset=UTF-8
-Content-Length: 103
-
-{
-  "identifier" : "end_pt_set17",
-  "permittableEndpointGroupIdentifiers" : [ "ideeOne", "ideeTwo" ]
-}</code></pre>
-</div>
-</div>
-<hr>
-<div class="listingblock">
-<div class="title">request</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">GET /applications/test145-v1/callendpointset HTTP/1.1
-Accept: */*
-Content-Type: application/json
-Host: localhost:8080</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">response</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
-Content-Type: application/json;charset=UTF-8
-Content-Length: 198
-
-[ {
-  "identifier" : "end_pt_set2",
-  "permittableEndpointGroupIdentifiers" : [ "ideeOne", "ideeTwo" ]
-}, {
-  "identifier" : "endptset3",
-  "permittableEndpointGroupIdentifiers" : [ "ideeZero" ]
-} ]</code></pre>
-</div>
-</div>
-<hr>
-<div class="listingblock">
-<div class="title">request</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">GET /applications/testApp497-v1/permissions/identity__v1__users HTTP/1.1
-Accept: */*
-Content-Type: application/json
-Host: localhost:8080</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">response</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
-Content-Type: application/json;charset=UTF-8
-Content-Length: 104
-
-{
-  "permittableEndpointGroupIdentifier" : "identity__v1__users",
-  "allowedOperations" : [ "CHANGE" ]
-}</code></pre>
-</div>
-</div>
-<hr>
-<div class="listingblock">
-<div class="title">request</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">GET /applications/testApp756-v1/permissions HTTP/1.1
-Accept: */*
-Content-Type: application/json
-Host: localhost:8080</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">response</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
-Content-Type: application/json;charset=UTF-8
-Content-Length: 214
-
-[ {
-  "permittableEndpointGroupIdentifier" : "identity__v1__roles",
-  "allowedOperations" : [ "DELETE" ]
-}, {
-  "permittableEndpointGroupIdentifier" : "identity__v1__users",
-  "allowedOperations" : [ "CHANGE" ]
-} ]</code></pre>
-</div>
-</div>
-<hr>
-<div class="listingblock">
-<div class="title">request</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">GET /applications/testApp679-v1/signatures/2019-01-07T21_31_14 HTTP/1.1
-Accept: application/json
+<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">GET /instances?customer=Customerm7i HTTP/1.1
 Content-Type: */*
+Accept: application/json
 Host: localhost:8080</code></pre>
 </div>
 </div>
@@ -1103,80 +681,18 @@ Host: localhost:8080</code></pre>
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
-Content-Length: 666
-
-{
-  "publicKeyMod" : 23698408828387887007759056361929392323219724665396063078856163177015792510341269502958457041680859099048302187142387547902559760394423897674323086453292304548662059698923489979966384238005978204883680452838500985957344697762149482123438802018293592682324394020942208031620416714684132895518250366821850985779245436182595396996098117859633224960240827358404119961045841556308248323031792723431562716350672431131542004538232457954865018322165503196061135799831799764027463961376026405283664929889115038472546897421655373142792346765719606165972497574908771905007193674516987441082916876853628662717725937075475114130669,
-  "publicKeyExp" : 65537
-}</code></pre>
-</div>
-</div>
-<hr>
-<div class="listingblock">
-<div class="title">request</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">GET /applications HTTP/1.1
-Accept: */*
-Content-Type: application/json
-Host: localhost:8080</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">response</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
-Content-Type: application/json;charset=UTF-8
-Content-Length: 185
-
-[ "test145-v1", "testApp679-v1", "test306-v1", "testApp756-v1", "testApp010-v1", "test435-v1", "test670-v1", "test052-v1", "test046-v1", "test983-v1", "testApp039-v1", "testApp497-v1" ]</code></pre>
-</div>
-</div>
-<hr>
-<div class="listingblock">
-<div class="title">request</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">GET /roles/scribe6 HTTP/1.1
-Accept: */*
-Content-Type: application/json
-Host: localhost:8080</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">response</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
-Content-Type: application/json;charset=UTF-8
-Content-Length: 182
-
-{
-  "identifier" : "scribe6",
-  "permissions" : [ {
-    "permittableEndpointGroupIdentifier" : "identity__v1__roles",
-    "allowedOperations" : [ "READ", "CHANGE", "DELETE" ]
-  } ]
-}</code></pre>
-</div>
-</div>
-<hr>
-<div class="listingblock">
-<div class="title">request</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">GET /users/Ahmes_friend_Two/permissions HTTP/1.1
-Accept: */*
-Content-Type: application/json
-Host: localhost:8080</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">response</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
-Content-Type: application/json;charset=UTF-8
-Content-Length: 125
+Content-Length: 323
 
 [ {
-  "permittableEndpointGroupIdentifier" : "identity__v1__self",
-  "allowedOperations" : [ "READ", "CHANGE", "DELETE" ]
+  "customerIdentifier" : "Customerm7i",
+  "productIdentifier" : "pdtDefUBJ3",
+  "accountIdentifier" : "Customerm7i.91xx.00001",
+  "alternativeAccountNumber" : null,
+  "beneficiaries" : [ "BenefiaryqjI", "BenefiarylHe" ],
+  "openedOn" : null,
+  "lastTransactionDate" : null,
+  "state" : "PENDING",
+  "balance" : null
 } ]</code></pre>
 </div>
 </div>
@@ -1184,15 +700,686 @@ Content-Length: 125
 <div class="listingblock">
 <div class="title">request</div>
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">PUT /applications/testApp039-v1/signatures/2019-01-07T21_30_42 HTTP/1.1
-Accept: application/json
+<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">GET /definitions HTTP/1.1
 Content-Type: application/json
-Host: localhost:8080
-Content-Length: 666
+Accept: */*
+Host: localhost:8080</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">response</div>
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
+Content-Type: application/json;charset=UTF-8
+Content-Length: 11569
+
+[ {
+  "type" : "SAVINGS",
+  "identifier" : "pdtDefV35K",
+  "name" : "PdtName yf7m0E",
+  "description" : "PdtName yf7m0E",
+  "currency" : {
+    "code" : "USD",
+    "name" : "US Dollar",
+    "sign" : "$",
+    "scale" : 3
+  },
+  "minimumBalance" : 50.0,
+  "equityLedgerIdentifier" : "91xx",
+  "cashAccountIdentifier" : "76xx",
+  "expenseAccountIdentifier" : "38xx",
+  "accrueAccountIdentifier" : "82xx",
+  "interest" : 1.25,
+  "term" : {
+    "period" : 12,
+    "timeUnit" : "MONTH",
+    "interestPayable" : "MATURITY"
+  },
+  "charges" : [ {
+    "actionIdentifier" : "Close",
+    "incomeAccountIdentifier" : "10123",
+    "name" : "Closing Account Fee",
+    "description" : null,
+    "proportional" : false,
+    "amount" : 2.0
+  }, {
+    "actionIdentifier" : "Open",
+    "incomeAccountIdentifier" : "10123",
+    "name" : "Opening Account Charge",
+    "description" : null,
+    "proportional" : false,
+    "amount" : 2.0
+  } ],
+  "flexible" : false,
+  "active" : false
+}, {
+  "type" : "SAVINGS",
+  "identifier" : "pdtDef3knK",
+  "name" : "PdtName NhAHDJ",
+  "description" : "PdtName NhAHDJ",
+  "currency" : {
+    "code" : "USD",
+    "name" : "US Dollar",
+    "sign" : "$",
+    "scale" : 3
+  },
+  "minimumBalance" : 50.0,
+  "equityLedgerIdentifier" : "91xx",
+  "cashAccountIdentifier" : "76xx",
+  "expenseAccountIdentifier" : "38xx",
+  "accrueAccountIdentifier" : "82xx",
+  "interest" : 1.25,
+  "term" : {
+    "period" : 12,
+    "timeUnit" : "MONTH",
+    "interestPayable" : "MATURITY"
+  },
+  "charges" : [ {
+    "actionIdentifier" : "Close",
+    "incomeAccountIdentifier" : "10123",
+    "name" : "Closing Account Fee",
+    "description" : null,
+    "proportional" : false,
+    "amount" : 2.0
+  }, {
+    "actionIdentifier" : "Open",
+    "incomeAccountIdentifier" : "10123",
+    "name" : "Opening Account Charge",
+    "description" : null,
+    "proportional" : false,
+    "amount" : 2.0
+  } ],
+  "flexible" : false,
+  "active" : false
+}, {
+  "type" : "SAVINGS",
+  "identifier" : "pdtDefQNkO",
+  "name" : "PdtName WKJCYI",
+  "description" : "PdtName WKJCYI",
+  "currency" : {
+    "code" : "USD",
+    "name" : "US Dollar",
+    "sign" : "$",
+    "scale" : 3
+  },
+  "minimumBalance" : 50.0,
+  "equityLedgerIdentifier" : "91xx",
+  "cashAccountIdentifier" : "76xx",
+  "expenseAccountIdentifier" : "38xx",
+  "accrueAccountIdentifier" : "82xx",
+  "interest" : 1.25,
+  "term" : {
+    "period" : 12,
+    "timeUnit" : "MONTH",
+    "interestPayable" : "MATURITY"
+  },
+  "charges" : [ {
+    "actionIdentifier" : "Close",
+    "incomeAccountIdentifier" : "10123",
+    "name" : "Closing Account Fee",
+    "description" : null,
+    "proportional" : false,
+    "amount" : 2.0
+  }, {
+    "actionIdentifier" : "Open",
+    "incomeAccountIdentifier" : "10123",
+    "name" : "Opening Account Charge",
+    "description" : null,
+    "proportional" : false,
+    "amount" : 2.0
+  } ],
+  "flexible" : false,
+  "active" : false
+}, {
+  "type" : "SAVINGS",
+  "identifier" : "pdtDef6wrE",
+  "name" : "PdtName 4MrM7x",
+  "description" : "PdtName 4MrM7x",
+  "currency" : {
+    "code" : "USD",
+    "name" : "US Dollar",
+    "sign" : "$",
+    "scale" : 3
+  },
+  "minimumBalance" : 50.0,
+  "equityLedgerIdentifier" : "91xx",
+  "cashAccountIdentifier" : "76xx",
+  "expenseAccountIdentifier" : "38xx",
+  "accrueAccountIdentifier" : "82xx",
+  "interest" : 1.25,
+  "term" : {
+    "period" : 12,
+    "timeUnit" : "MONTH",
+    "interestPayable" : "MATURITY"
+  },
+  "charges" : [ {
+    "actionIdentifier" : "Close",
+    "incomeAccountIdentifier" : "10123",
+    "name" : "Closing Account Fee",
+    "description" : null,
+    "proportional" : false,
+    "amount" : 2.0
+  }, {
+    "actionIdentifier" : "Open",
+    "incomeAccountIdentifier" : "10123",
+    "name" : "Opening Account Charge",
+    "description" : null,
+    "proportional" : false,
+    "amount" : 2.0
+  } ],
+  "flexible" : false,
+  "active" : false
+}, {
+  "type" : "SAVINGS",
+  "identifier" : "pdtDefQkwC",
+  "name" : "PdtName hGzfaK",
+  "description" : "PdtName hGzfaK",
+  "currency" : {
+    "code" : "USD",
+    "name" : "US Dollar",
+    "sign" : "$",
+    "scale" : 3
+  },
+  "minimumBalance" : 50.0,
+  "equityLedgerIdentifier" : "91xx",
+  "cashAccountIdentifier" : "76xx",
+  "expenseAccountIdentifier" : "38xx",
+  "accrueAccountIdentifier" : "82xx",
+  "interest" : 1.25,
+  "term" : {
+    "period" : 12,
+    "timeUnit" : "MONTH",
+    "interestPayable" : "MATURITY"
+  },
+  "charges" : [ {
+    "actionIdentifier" : "Close",
+    "incomeAccountIdentifier" : "10123",
+    "name" : "Closing Account Fee",
+    "description" : null,
+    "proportional" : false,
+    "amount" : 2.0
+  }, {
+    "actionIdentifier" : "Open",
+    "incomeAccountIdentifier" : "10123",
+    "name" : "Opening Account Charge",
+    "description" : null,
+    "proportional" : false,
+    "amount" : 2.0
+  } ],
+  "flexible" : false,
+  "active" : false
+}, {
+  "type" : "SAVINGS",
+  "identifier" : "pdtDef00px",
+  "name" : "PdtName YrjbfK",
+  "description" : "PdtName YrjbfK",
+  "currency" : {
+    "code" : "USD",
+    "name" : "US Dollar",
+    "sign" : "$",
+    "scale" : 3
+  },
+  "minimumBalance" : 50.0,
+  "equityLedgerIdentifier" : "91xx",
+  "cashAccountIdentifier" : "76xx",
+  "expenseAccountIdentifier" : "38xx",
+  "accrueAccountIdentifier" : "82xx",
+  "interest" : 1.25,
+  "term" : {
+    "period" : 12,
+    "timeUnit" : "MONTH",
+    "interestPayable" : "MATURITY"
+  },
+  "charges" : [ {
+    "actionIdentifier" : "Close",
+    "incomeAccountIdentifier" : "10123",
+    "name" : "Closing Account Fee",
+    "description" : null,
+    "proportional" : false,
+    "amount" : 2.0
+  }, {
+    "actionIdentifier" : "Open",
+    "incomeAccountIdentifier" : "10123",
+    "name" : "Opening Account Charge",
+    "description" : null,
+    "proportional" : false,
+    "amount" : 2.0
+  } ],
+  "flexible" : false,
+  "active" : false
+}, {
+  "type" : "SAVINGS",
+  "identifier" : "pdtDefyTxn",
+  "name" : "PdtName MOUQiX",
+  "description" : "PdtName MOUQiX",
+  "currency" : {
+    "code" : "USD",
+    "name" : "US Dollar",
+    "sign" : "$",
+    "scale" : 3
+  },
+  "minimumBalance" : 50.0,
+  "equityLedgerIdentifier" : "91xx",
+  "cashAccountIdentifier" : "76xx",
+  "expenseAccountIdentifier" : "38xx",
+  "accrueAccountIdentifier" : "82xx",
+  "interest" : 1.25,
+  "term" : {
+    "period" : 12,
+    "timeUnit" : "MONTH",
+    "interestPayable" : "MATURITY"
+  },
+  "charges" : [ {
+    "actionIdentifier" : "Close",
+    "incomeAccountIdentifier" : "10123",
+    "name" : "Closing Account Fee",
+    "description" : null,
+    "proportional" : false,
+    "amount" : 2.0
+  }, {
+    "actionIdentifier" : "Open",
+    "incomeAccountIdentifier" : "10123",
+    "name" : "Opening Account Charge",
+    "description" : null,
+    "proportional" : false,
+    "amount" : 2.0
+  } ],
+  "flexible" : false,
+  "active" : false
+}, {
+  "type" : "SAVINGS",
+  "identifier" : "pdtDef30nR",
+  "name" : "PdtName 3FfRSz",
+  "description" : "PdtName 3FfRSz",
+  "currency" : {
+    "code" : "USD",
+    "name" : "US Dollar",
+    "sign" : "$",
+    "scale" : 3
+  },
+  "minimumBalance" : 50.0,
+  "equityLedgerIdentifier" : "91xx",
+  "cashAccountIdentifier" : "76xx",
+  "expenseAccountIdentifier" : "38xx",
+  "accrueAccountIdentifier" : "82xx",
+  "interest" : 1.25,
+  "term" : {
+    "period" : 12,
+    "timeUnit" : "MONTH",
+    "interestPayable" : "MATURITY"
+  },
+  "charges" : [ {
+    "actionIdentifier" : "Close",
+    "incomeAccountIdentifier" : "10123",
+    "name" : "Closing Account Fee",
+    "description" : null,
+    "proportional" : false,
+    "amount" : 2.0
+  }, {
+    "actionIdentifier" : "Open",
+    "incomeAccountIdentifier" : "10123",
+    "name" : "Opening Account Charge",
+    "description" : null,
+    "proportional" : false,
+    "amount" : 2.0
+  } ],
+  "flexible" : false,
+  "active" : false
+}, {
+  "type" : "SAVINGS",
+  "identifier" : "pdtDefsOpl",
+  "name" : "PdtName bWwRGo",
+  "description" : "PdtName bWwRGo",
+  "currency" : {
+    "code" : "USD",
+    "name" : "US Dollar",
+    "sign" : "$",
+    "scale" : 3
+  },
+  "minimumBalance" : 50.0,
+  "equityLedgerIdentifier" : "91xx",
+  "cashAccountIdentifier" : "76xx",
+  "expenseAccountIdentifier" : "38xx",
+  "accrueAccountIdentifier" : "82xx",
+  "interest" : 1.25,
+  "term" : {
+    "period" : 12,
+    "timeUnit" : "MONTH",
+    "interestPayable" : "MATURITY"
+  },
+  "charges" : [ {
+    "actionIdentifier" : "Close",
+    "incomeAccountIdentifier" : "10123",
+    "name" : "Closing Account Fee",
+    "description" : null,
+    "proportional" : false,
+    "amount" : 2.0
+  }, {
+    "actionIdentifier" : "Open",
+    "incomeAccountIdentifier" : "10123",
+    "name" : "Opening Account Charge",
+    "description" : null,
+    "proportional" : false,
+    "amount" : 2.0
+  } ],
+  "flexible" : false,
+  "active" : false
+}, {
+  "type" : "SAVINGS",
+  "identifier" : "pdtDefCmTU",
+  "name" : "PdtName L7ti7L",
+  "description" : "PdtName L7ti7L",
+  "currency" : {
+    "code" : "USD",
+    "name" : "US Dollar",
+    "sign" : "$",
+    "scale" : 3
+  },
+  "minimumBalance" : 50.0,
+  "equityLedgerIdentifier" : "91xx",
+  "cashAccountIdentifier" : "76xx",
+  "expenseAccountIdentifier" : "38xx",
+  "accrueAccountIdentifier" : "82xx",
+  "interest" : 1.25,
+  "term" : {
+    "period" : 12,
+    "timeUnit" : "MONTH",
+    "interestPayable" : "MATURITY"
+  },
+  "charges" : [ {
+    "actionIdentifier" : "Close",
+    "incomeAccountIdentifier" : "10123",
+    "name" : "Closing Account Fee",
+    "description" : null,
+    "proportional" : false,
+    "amount" : 2.0
+  }, {
+    "actionIdentifier" : "Open",
+    "incomeAccountIdentifier" : "10123",
+    "name" : "Opening Account Charge",
+    "description" : null,
+    "proportional" : false,
+    "amount" : 2.0
+  } ],
+  "flexible" : true,
+  "active" : false
+}, {
+  "type" : "SAVINGS",
+  "identifier" : "pdtDef77FN",
+  "name" : "PdtName 0ppjuj",
+  "description" : "PdtName 0ppjuj",
+  "currency" : {
+    "code" : "USD",
+    "name" : "US Dollar",
+    "sign" : "$",
+    "scale" : 3
+  },
+  "minimumBalance" : 50.0,
+  "equityLedgerIdentifier" : "91xx",
+  "cashAccountIdentifier" : "76xx",
+  "expenseAccountIdentifier" : "38xx",
+  "accrueAccountIdentifier" : "82xx",
+  "interest" : 1.25,
+  "term" : {
+    "period" : 12,
+    "timeUnit" : "MONTH",
+    "interestPayable" : "MATURITY"
+  },
+  "charges" : [ {
+    "actionIdentifier" : "Close",
+    "incomeAccountIdentifier" : "10123",
+    "name" : "Closing Account Fee",
+    "description" : null,
+    "proportional" : false,
+    "amount" : 2.0
+  }, {
+    "actionIdentifier" : "Open",
+    "incomeAccountIdentifier" : "10123",
+    "name" : "Opening Account Charge",
+    "description" : null,
+    "proportional" : false,
+    "amount" : 2.0
+  } ],
+  "flexible" : false,
+  "active" : false
+}, {
+  "type" : "SAVINGS",
+  "identifier" : "pdtDef0U3E",
+  "name" : "PdtName gmLQGO",
+  "description" : "PdtName gmLQGO",
+  "currency" : {
+    "code" : "USD",
+    "name" : "US Dollar",
+    "sign" : "$",
+    "scale" : 3
+  },
+  "minimumBalance" : 50.0,
+  "equityLedgerIdentifier" : "91xx",
+  "cashAccountIdentifier" : "76xx",
+  "expenseAccountIdentifier" : "38xx",
+  "accrueAccountIdentifier" : "82xx",
+  "interest" : 1.25,
+  "term" : {
+    "period" : 12,
+    "timeUnit" : "MONTH",
+    "interestPayable" : "MATURITY"
+  },
+  "charges" : [ {
+    "actionIdentifier" : "Close",
+    "incomeAccountIdentifier" : "10123",
+    "name" : "Closing Account Fee",
+    "description" : null,
+    "proportional" : false,
+    "amount" : 2.0
+  }, {
+    "actionIdentifier" : "Open",
+    "incomeAccountIdentifier" : "10123",
+    "name" : "Opening Account Charge",
+    "description" : null,
+    "proportional" : false,
+    "amount" : 2.0
+  } ],
+  "flexible" : false,
+  "active" : false
+} ]</code></pre>
+</div>
+</div>
+<hr>
+<div class="listingblock">
+<div class="title">request</div>
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">GET /instances/transactiontypes?customer=Customer3Rp HTTP/1.1
+Content-Type: */*
+Accept: application/json
+Host: localhost:8080</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">response</div>
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
+Content-Type: application/json;charset=UTF-8
+Content-Length: 36
+
+[ {
+  "transactionType" : "ACCO"
+} ]</code></pre>
+</div>
+</div>
+<hr>
+<div class="listingblock">
+<div class="title">request</div>
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">GET /instances/Customerjdc.91xx.00001 HTTP/1.1
+Content-Type: */*
+Accept: application/json
+Host: localhost:8080</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">response</div>
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
+Content-Disposition: inline;filename=f.txt
+Content-Type: application/json;charset=UTF-8
+Content-Length: 319
 
 {
-  "publicKeyMod" : 25166214691790286735384163191744735862952736814132676797445322263658312116891723379167192777014222566629391722222450714891253445973041926910156344026651525020969080923185785716219710750628126607011145277528311663913679787928720911272724721635401122412222090479028003048960358172656894147449168766593466021298918574104131542166110902357625148073033907648865545995233381576371574226273904449750068561223643100423682717085579407490174972536151812919910362257878349050063977567525170087219364084920216676665667502771421297672860629650645764556963769394080380328567804686311257209403933036508299795273795456350870919187683,
-  "publicKeyExp" : 65537
+  "customerIdentifier" : "Customerjdc",
+  "productIdentifier" : "pdtDefmRlE",
+  "accountIdentifier" : "Customerjdc.91xx.00001",
+  "alternativeAccountNumber" : null,
+  "beneficiaries" : [ "Benefiary8K0", "Benefiary6MW" ],
+  "openedOn" : null,
+  "lastTransactionDate" : null,
+  "state" : "PENDING",
+  "balance" : null
+}</code></pre>
+</div>
+</div>
+<hr>
+<div class="listingblock">
+<div class="title">request</div>
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">GET /definitions/pdtDefMl8L HTTP/1.1
+Content-Type: application/json
+Accept: */*
+Host: localhost:8080</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">response</div>
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
+Content-Type: application/json;charset=UTF-8
+Content-Length: 962
+
+{
+  "type" : "SAVINGS",
+  "identifier" : "pdtDefMl8L",
+  "name" : "PdtName r6saxS",
+  "description" : "PdtName r6saxS",
+  "currency" : {
+    "code" : "USD",
+    "name" : "US Dollar",
+    "sign" : "$",
+    "scale" : 3
+  },
+  "minimumBalance" : 50.0,
+  "equityLedgerIdentifier" : "91xx",
+  "cashAccountIdentifier" : "76xx",
+  "expenseAccountIdentifier" : "38xx",
+  "accrueAccountIdentifier" : "82xx",
+  "interest" : 1.25,
+  "term" : {
+    "period" : 12,
+    "timeUnit" : "MONTH",
+    "interestPayable" : "MATURITY"
+  },
+  "charges" : [ {
+    "actionIdentifier" : "Close",
+    "incomeAccountIdentifier" : "10123",
+    "name" : "Closing Account Fee",
+    "description" : null,
+    "proportional" : false,
+    "amount" : 2.0
+  }, {
+    "actionIdentifier" : "Open",
+    "incomeAccountIdentifier" : "10123",
+    "name" : "Opening Account Charge",
+    "description" : null,
+    "proportional" : false,
+    "amount" : 2.0
+  } ],
+  "flexible" : false,
+  "active" : false
+}</code></pre>
+</div>
+</div>
+<hr>
+<div class="listingblock">
+<div class="title">request</div>
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">GET /definitions/pdtDefQNkO/instances HTTP/1.1
+Content-Type: application/json
+Accept: */*
+Host: localhost:8080</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">response</div>
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
+Content-Type: application/json;charset=UTF-8
+Content-Length: 323
+
+[ {
+  "customerIdentifier" : "CustomerKRb",
+  "productIdentifier" : "pdtDefQNkO",
+  "accountIdentifier" : "CustomerKRb.91xx.00001",
+  "alternativeAccountNumber" : null,
+  "beneficiaries" : [ "BenefiaryvbZ", "BenefiaryBcJ" ],
+  "openedOn" : null,
+  "lastTransactionDate" : null,
+  "state" : "PENDING",
+  "balance" : null
+} ]</code></pre>
+</div>
+</div>
+<hr>
+<div class="listingblock">
+<div class="title">request</div>
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">GET /definitions/pdtDefoLxT/commands HTTP/1.1
+Content-Type: application/json
+Accept: */*
+Host: localhost:8080</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">response</div>
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
+Content-Type: application/json;charset=UTF-8
+Content-Length: 3
+
+[ ]</code></pre>
+</div>
+</div>
+<hr>
+<div class="listingblock">
+<div class="title">request</div>
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">POST /instances/Customercrz.91xx.00001 HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+Host: localhost:8080
+
+command=TRANSACTION</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">response</div>
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 202 Accepted</code></pre>
+</div>
+</div>
+<hr>
+<div class="listingblock">
+<div class="title">request</div>
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">PUT /instances/CustomerEjp.91xx.00001 HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+Host: localhost:8080
+Content-Length: 213
+
+{
+  "customerIdentifier" : "CustomerEjp",
+  "productIdentifier" : "pdtDef00px",
+  "accountIdentifier" : "CustomerEjp.91xx.00001",
+  "beneficiaries" : [ "BeneficiaryOne", "BeneficiaryTwo" ],
+  "state" : "PENDING"
 }</code></pre>
 </div>
 </div>
@@ -1206,18 +1393,49 @@ Content-Length: 666
 <div class="listingblock">
 <div class="title">request</div>
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">PUT /roles/scribe23 HTTP/1.1
-Accept: application/json
+<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">PUT /definitions/pdtDefCmTU HTTP/1.1
 Content-Type: application/json
+Accept: */*
 Host: localhost:8080
-Content-Length: 183
+Content-Length: 908
 
 {
-  "identifier" : "scribe23",
-  "permissions" : [ {
-    "permittableEndpointGroupIdentifier" : "identity__v1__users",
-    "allowedOperations" : [ "READ", "CHANGE", "DELETE" ]
-  } ]
+  "type" : "SAVINGS",
+  "identifier" : "pdtDefCmTU",
+  "name" : "PdtName L7ti7L",
+  "description" : "PdtName L7ti7L",
+  "currency" : {
+    "code" : "USD",
+    "name" : "US Dollar",
+    "sign" : "$",
+    "scale" : 3
+  },
+  "minimumBalance" : 50.0,
+  "equityLedgerIdentifier" : "91xx",
+  "cashAccountIdentifier" : "76xx",
+  "expenseAccountIdentifier" : "38xx",
+  "accrueAccountIdentifier" : "82xx",
+  "interest" : 1.25,
+  "term" : {
+    "period" : 12,
+    "timeUnit" : "MONTH",
+    "interestPayable" : "MATURITY"
+  },
+  "charges" : [ {
+    "actionIdentifier" : "Close",
+    "incomeAccountIdentifier" : "10123",
+    "name" : "Closing Account Fee",
+    "proportional" : false,
+    "amount" : 2.0
+  }, {
+    "actionIdentifier" : "Open",
+    "incomeAccountIdentifier" : "10123",
+    "name" : "Opening Account Charge",
+    "proportional" : false,
+    "amount" : 2.0
+  } ],
+  "flexible" : true,
+  "active" : true
 }</code></pre>
 </div>
 </div>

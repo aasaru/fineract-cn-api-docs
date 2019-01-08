@@ -5,7 +5,7 @@
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.3">
-<title>identity-cn documentation</title>
+<title>group-cn documentation</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
@@ -419,7 +419,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="book">
 <div id="header">
-<h1>identity-cn documentation</h1>
+<h1>group-cn documentation</h1>
 </div>
 <div id="content">
 <div id="preamble">
@@ -427,36 +427,17 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="listingblock">
 <div class="title">request</div>
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">PUT /applications/test670-v1/callendpointset/end_pt_set16 HTTP/1.1
-Accept: */*
-Content-Type: application/json
-Host: localhost:8080
-Content-Length: 103
-
-{
-  "identifier" : "end_pt_set16",
-  "permittableEndpointGroupIdentifiers" : [ "ideeOne", "ideeTwo" ]
-}</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">response</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 202 Accepted</code></pre>
-</div>
-</div>
-<hr>
-<div class="listingblock">
-<div class="title">request</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">PUT /users/Daddy/password HTTP/1.1
+<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">POST /groups/grpzsk/commands HTTP/1.1
 Accept: application/json
 Content-Type: application/json
 Host: localhost:8080
-Content-Length: 37
+Content-Length: 129
 
 {
-  "password" : "c2VraGVtRGFkZHk="
+  "action" : "ACTIVATE",
+  "note" : "Activate NoteXM2",
+  "createdBy" : "ranefer",
+  "createdOn" : "2019-01-08T06:23:18.722Z"
 }</code></pre>
 </div>
 </div>
@@ -470,14 +451,17 @@ Content-Length: 37
 <div class="listingblock">
 <div class="title">request</div>
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">PUT /users/Ahmes_friend_One/roleIdentifier HTTP/1.1
+<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">POST /groups/grpe8Y/commands HTTP/1.1
 Accept: application/json
 Content-Type: application/json
 Host: localhost:8080
-Content-Length: 30
+Content-Length: 123
 
 {
-  "identifier" : "cobbler"
+  "action" : "CLOSE",
+  "note" : "Close NoteeK2",
+  "createdBy" : "ranefer",
+  "createdOn" : "2019-01-08T06:23:53.132Z"
 }</code></pre>
 </div>
 </div>
@@ -491,15 +475,59 @@ Content-Length: 30
 <div class="listingblock">
 <div class="title">request</div>
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">POST /applications/test435-v1/callendpointset HTTP/1.1
+<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">PUT /groups/grpMny/meetings HTTP/1.1
+Accept: */*
+Content-Type: application/json
+Host: localhost:8080
+Content-Length: 222
+
+{
+  "cycle" : 1,
+  "sequence" : 25,
+  "attendees" : [ {
+    "customerIdentifier" : "Memberh7g",
+    "status" : "ATTENDED"
+  }, {
+    "customerIdentifier" : "MemberK80",
+    "status" : "ATTENDED"
+  } ],
+  "duration" : 120
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">response</div>
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 202 Accepted</code></pre>
+</div>
+</div>
+<hr>
+<div class="listingblock">
+<div class="title">request</div>
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">POST /groups HTTP/1.1
 Accept: application/json
 Content-Type: application/json
 Host: localhost:8080
-Content-Length: 82
+Content-Length: 434
 
 {
-  "identifier" : "end_pt_set15",
-  "permittableEndpointGroupIdentifiers" : [ ]
+  "identifier" : "group001",
+  "groupDefinitionIdentifier" : "grpDef101",
+  "name" : "ARPOT Group",
+  "leaders" : [ "Nditapa", "Imele" ],
+  "members" : [ "Ayuk", "Awasum", "Kamga" ],
+  "office" : "Bambui",
+  "assignedEmployee" : "Tabah Tih",
+  "weekday" : 3,
+  "address" : {
+    "street" : "Hospital",
+    "city" : "Muyuka",
+    "region" : "SWR",
+    "postalCode" : "8050",
+    "countryCode" : "CM",
+    "country" : "Cameroon"
+  }
 }</code></pre>
 </div>
 </div>
@@ -513,42 +541,22 @@ Content-Length: 82
 <div class="listingblock">
 <div class="title">request</div>
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">POST /applications/testApp879-v1/permissions HTTP/1.1
-Accept: */*
-Content-Type: application/json
-Host: localhost:8080
-Content-Length: 102
-
-{
-  "permittableEndpointGroupIdentifier" : "identity__v1__users",
-  "allowedOperations" : [ "READ" ]
-}</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">response</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 202 Accepted</code></pre>
-</div>
-</div>
-<hr>
-<div class="listingblock">
-<div class="title">request</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">POST /permittablegroups HTTP/1.1
+<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">POST /definitions HTTP/1.1
 Accept: application/json
 Content-Type: application/json
 Host: localhost:8080
-Content-Length: 188
+Content-Length: 234
 
 {
-  "identifier" : "group1",
-  "permittables" : [ {
-    "path" : "/exx/eyy/eze",
-    "method" : "POST",
-    "groupId" : "id",
-    "acceptTokenIntendedForForeignApplication" : false
-  } ]
+  "identifier" : "grpDef8C9",
+  "description" : "Group Def Descr sOipI",
+  "minimalSize" : 10,
+  "maximalSize" : 30,
+  "cycle" : {
+    "numberOfMeetings" : 25,
+    "frequency" : "WEEKLY",
+    "adjustment" : "NEXT_BUSINESS_DAY"
+  }
 }</code></pre>
 </div>
 </div>
@@ -562,119 +570,7 @@ Content-Length: 188
 <div class="listingblock">
 <div class="title">request</div>
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">POST /roles HTTP/1.1
-Accept: application/json
-Content-Type: application/json
-Host: localhost:8080
-Content-Length: 182
-
-{
-  "identifier" : "scribe8",
-  "permissions" : [ {
-    "permittableEndpointGroupIdentifier" : "identity__v1__roles",
-    "allowedOperations" : [ "READ", "CHANGE", "DELETE" ]
-  } ]
-}</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">response</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 202 Accepted</code></pre>
-</div>
-</div>
-<hr>
-<div class="listingblock">
-<div class="title">request</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">POST /users HTTP/1.1
-Accept: application/json
-Content-Type: application/json
-Host: localhost:8080
-Content-Length: 93
-
-{
-  "identifier" : "Ahmes_friend_zero",
-  "role" : "scribe_zero",
-  "password" : "c2VraGVt"
-}</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">response</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 202 Accepted</code></pre>
-</div>
-</div>
-<hr>
-<div class="listingblock">
-<div class="title">request</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">DELETE /applications/test099-v1 HTTP/1.1
-Accept: */*
-Content-Type: application/json
-Host: localhost:8080</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">response</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 202 Accepted</code></pre>
-</div>
-</div>
-<hr>
-<div class="listingblock">
-<div class="title">request</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">DELETE /applications/test052-v1/callendpointset/end_pt_set19 HTTP/1.1
-Accept: */*
-Content-Type: application/json
-Host: localhost:8080</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">response</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 202 Accepted</code></pre>
-</div>
-</div>
-<hr>
-<div class="listingblock">
-<div class="title">request</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">DELETE /applications/testApp010-v1/permissions/identity__v1__users HTTP/1.1
-Accept: */*
-Content-Type: application/json
-Host: localhost:8080</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">response</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 202 Accepted</code></pre>
-</div>
-</div>
-<hr>
-<div class="listingblock">
-<div class="title">request</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">DELETE /roles/scribe10 HTTP/1.1
-Accept: */*
-Content-Type: application/json
-Host: localhost:8080</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">response</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 202 Accepted</code></pre>
-</div>
-</div>
-<hr>
-<div class="listingblock">
-<div class="title">request</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">GET /permittablegroups HTTP/1.1
+<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">GET /groups/grphIR/meetings?upcoming=false HTTP/1.1
 Accept: */*
 Content-Type: application/json
 Host: localhost:8080</code></pre>
@@ -685,172 +581,75 @@ Host: localhost:8080</code></pre>
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
-Content-Length: 4985
+Content-Length: 11336
+
+[{"meetingSequence":25,"groupIdentifier":"grphIR","currentCycle":1,"attendees":[{"customerIdentifier":"MemberWSz","status":"EXPECTED"},{"customerIdentifier":"MemberQWU","status":"EXPECTED"}],"scheduledFor":"2019-07-03Z","location":{"street":"street3xaS","city":"cityk1FIN","region":"regionYq2aNj","postalCode":"1tZJ","countryCode":"TQ","country":"countryrhEymm"},"heldOn":null,"duration":null,"createdOn":"2019-01-08T06:23:55.1Z","createdBy":"ranefer"},{"meetingSequence":24,"groupIdentifier":"grphIR","currentCycle":1,"attendees":[{"customerIdentifier":"MemberWSz","status":"EXPECTED"},{"customerIdentifier":"MemberQWU","status":"EXPECTED"}],"scheduledFor":"2019-06-26Z","location":{"street":"street3xaS","city":"cityk1FIN","region":"regionYq2aNj","postalCode":"1tZJ","countryCode":"TQ","country":"countryrhEymm"},"heldOn":null,"duration":null,"createdOn":"2019-01-08T06:23:55.097Z","createdBy":"ranefer"},{"meetingSequence":23,"groupIdentifier":"grphIR","currentCycle":1,"attendees":[{"customerIdentifier":"MemberWSz","status":"EXPECTED"},{"customerIdentifier":"MemberQWU","status":"EXPECTED"}],"scheduledFor":"2019-06-19Z","location":{"street":"street3xaS","city":"cityk1FIN","region":"regionYq2aNj","postalCode":"1tZJ","countryCode":"TQ","country":"countryrhEymm"},"heldOn":null,"duration":null,"createdOn":"2019-01-08T06:23:55.094Z","createdBy":"ranefer"},{"meetingSequence":22,"groupIdentifier":"grphIR","currentCycle":1,"attendees":[{"customerIdentifier":"MemberWSz","status":"EXPECTED"},{"customerIdentifier":"MemberQWU","status":"EXPECTED"}],"scheduledFor":"2019-06-12Z","location":{"street":"street3xaS","city":"cityk1FIN","region":"regionYq2aNj","postalCode":"1tZJ","countryCode":"TQ","country":"countryrhEymm"},"heldOn":null,"duration":null,"createdOn":"2019-01-08T06:23:55.09Z","createdBy":"ranefer"},{"meetingSequence":21,"groupIdentifier":"grphIR","currentCycle":1,"attendees":[{"customerIdentifier":"MemberWSz","status":"EXPECTED"},{"customerIdentifier":"MemberQWU","status":"EXPECTED"}],"scheduledFor":"2019-06-05Z","location":{"street":"street3xaS","city":"cityk1FIN","region":"regionYq2aNj","postalCode":"1tZJ","countryCode":"TQ","country":"countryrhEymm"},"heldOn":null,"duration":null,"createdOn":"2019-01-08T06:23:55.087Z","createdBy":"ranefer"},{"meetingSequence":20,"groupIdentifier":"grphIR","currentCycle":1,"attendees":[{"customerIdentifier":"MemberWSz","status":"EXPECTED"},{"customerIdentifier":"MemberQWU","status":"EXPECTED"}],"scheduledFor":"2019-05-29Z","location":{"street":"street3xaS","city":"cityk1FIN","region":"regionYq2aNj","postalCode":"1tZJ","countryCode":"TQ","country":"countryrhEymm"},"heldOn":null,"duration":null,"createdOn":"2019-01-08T06:23:55.084Z","createdBy":"ranefer"},{"meetingSequence":19,"groupIdentifier":"grphIR","currentCycle":1,"attendees":[{"customerIdentifier":"MemberWSz","status":"EXPECTED"},{"customerIdentifier":"MemberQWU","status":"EXPECTED"}],"scheduledFor":"2019-05-22Z","location":{"street":"street3xaS","city":"cityk1FIN","region":"regionYq2aNj","postalCode":"1tZJ","countryCode":"TQ","country":"countryrhEymm"},"heldOn":null,"duration":null,"createdOn":"2019-01-08T06:23:55.081Z","createdBy":"ranefer"},{"meetingSequence":18,"groupIdentifier":"grphIR","currentCycle":1,"attendees":[{"customerIdentifier":"MemberQWU","status":"EXPECTED"},{"customerIdentifier":"MemberWSz","status":"EXPECTED"}],"scheduledFor":"2019-05-15Z","location":{"street":"street3xaS","city":"cityk1FIN","region":"regionYq2aNj","postalCode":"1tZJ","countryCode":"TQ","country":"countryrhEymm"},"heldOn":null,"duration":null,"createdOn":"2019-01-08T06:23:55.079Z","createdBy":"ranefer"},{"meetingSequence":17,"groupIdentifier":"grphIR","currentCycle":1,"attendees":[{"customerIdentifier":"MemberWSz","status":"EXPECTED"},{"customerIdentifier":"MemberQWU","status":"EXPECTED"}],"scheduledFor":"2019-05-08Z","location":{"street":"street3xaS","city":"cityk1FIN","region":"regionYq2aNj","postalCode":"1tZJ","countryCode":"TQ","country":"countryrhEymm"},"heldOn":null,"duration":null,"createdOn":"2019-01-08T06:23:55.076Z","createdBy":"ranefer"},{"meetingSequence":16,"groupIdentifier":"grphIR","currentCycle":1,"attendees":[{"customerIdentifier":"MemberQWU","status":"EXPECTED"},{"customerIdentifier":"MemberWSz","status":"EXPECTED"}],"scheduledFor":"2019-05-01Z","location":{"street":"street3xaS","city":"cityk1FIN","region":"regionYq2aNj","postalCode":"1tZJ","countryCode":"TQ","country":"countryrhEymm"},"heldOn":null,"duration":null,"createdOn":"2019-01-08T06:23:55.073Z","createdBy":"ranefer"},{"meetingSequence":15,"groupIdentifier":"grphIR","currentCycle":1,"attendees":[{"customerIdentifier":"MemberQWU","status":"EXPECTED"},{"customerIdentifier":"MemberWSz","status":"EXPECTED"}],"scheduledFor":"2019-04-24Z","location":{"street":"street3xaS","city":"cityk1FIN","region":"regionYq2aNj","postalCode":"1tZJ","countryCode":"TQ","country":"countryrhEymm"},"heldOn":null,"duration":null,"createdOn":"2019-01-08T06:23:55.07Z","createdBy":"ranefer"},{"meetingSequence":14,"groupIdentifier":"grphIR","currentCycle":1,"attendees":[{"customerIdentifier":"MemberQWU","status":"EXPECTED"},{"customerIdentifier":"MemberWSz","status":"EXPECTED"}],"scheduledFor":"2019-04-17Z","location":{"street":"street3xaS","city":"cityk1FIN","region":"regionYq2aNj","postalCode":"1tZJ","countryCode":"TQ","country":"countryrhEymm"},"heldOn":null,"duration":null,"createdOn":"2019-01-08T06:23:55.068Z","createdBy":"ranefer"},{"meetingSequence":13,"groupIdentifier":"grphIR","currentCycle":1,"attendees":[{"customerIdentifier":"MemberWSz","status":"EXPECTED"},{"customerIdentifier":"MemberQWU","status":"EXPECTED"}],"scheduledFor":"2019-04-10Z","location":{"street":"street3xaS","city":"cityk1FIN","region":"regionYq2aNj","postalCode":"1tZJ","countryCode":"TQ","country":"countryrhEymm"},"heldOn":null,"duration":null,"createdOn":"2019-01-08T06:23:55.064Z","createdBy":"ranefer"},{"meetingSequence":12,"groupIdentifier":"grphIR","currentCycle":1,"attendees":[{"customerIdentifier":"MemberWSz","status":"EXPECTED"},{"customerIdentifier":"MemberQWU","status":"EXPECTED"}],"scheduledFor":"2019-04-03Z","location":{"street":"street3xaS","city":"cityk1FIN","region":"regionYq2aNj","postalCode":"1tZJ","countryCode":"TQ","country":"countryrhEymm"},"heldOn":null,"duration":null,"createdOn":"2019-01-08T06:23:55.061Z","createdBy":"ranefer"},{"meetingSequence":11,"groupIdentifier":"grphIR","currentCycle":1,"attendees":[{"customerIdentifier":"MemberWSz","status":"EXPECTED"},{"customerIdentifier":"MemberQWU","status":"EXPECTED"}],"scheduledFor":"2019-03-27Z","location":{"street":"street3xaS","city":"cityk1FIN","region":"regionYq2aNj","postalCode":"1tZJ","countryCode":"TQ","country":"countryrhEymm"},"heldOn":null,"duration":null,"createdOn":"2019-01-08T06:23:55.058Z","createdBy":"ranefer"},{"meetingSequence":10,"groupIdentifier":"grphIR","currentCycle":1,"attendees":[{"customerIdentifier":"MemberQWU","status":"EXPECTED"},{"customerIdentifier":"MemberWSz","status":"EXPECTED"}],"scheduledFor":"2019-03-20Z","location":{"street":"street3xaS","city":"cityk1FIN","region":"regionYq2aNj","postalCode":"1tZJ","countryCode":"TQ","country":"countryrhEymm"},"heldOn":null,"duration":null,"createdOn":"2019-01-08T06:23:55.055Z","createdBy":"ranefer"},{"meetingSequence":9,"groupIdentifier":"grphIR","currentCycle":1,"attendees":[{"customerIdentifier":"MemberWSz","status":"EXPECTED"},{"customerIdentifier":"MemberQWU","status":"EXPECTED"}],"scheduledFor":"2019-03-13Z","location":{"street":"street3xaS","city":"cityk1FIN","region":"regionYq2aNj","postalCode":"1tZJ","countryCode":"TQ","country":"countryrhEymm"},"heldOn":null,"duration":null,"createdOn":"2019-01-08T06:23:55.05Z","createdBy":"ranefer"},{"meetingSequence":8,"groupIdentifier":"grphIR","currentCycle":1,"attendees":[{"customerIdentifier":"MemberWSz","status":"EXPECTED"},{"customerIdentifier":"MemberQWU","status":"EXPECTED"}],"scheduledFor":"2019-03-06Z","location":{"street":"street3xaS","city":"cityk1FIN","region":"regionYq2aNj","postalCode":"1tZJ","countryCode":"TQ","country":"countryrhEymm"},"heldOn":null,"duration":null,"createdOn":"2019-01-08T06:23:55.048Z","createdBy":"ranefer"},{"meetingSequence":7,"groupIdentifier":"grphIR","currentCycle":1,"attendees":[{"customerIdentifier":"MemberWSz","status":"EXPECTED"},{"customerIdentifier":"MemberQWU","status":"EXPECTED"}],"scheduledFor":"2019-02-27Z","location":{"street":"street3xaS","city":"cityk1FIN","region":"regionYq2aNj","postalCode":"1tZJ","countryCode":"TQ","country":"countryrhEymm"},"heldOn":null,"duration":null,"createdOn":"2019-01-08T06:23:55.044Z","createdBy":"ranefer"},{"meetingSequence":6,"groupIdentifier":"grphIR","currentCycle":1,"attendees":[{"customerIdentifier":"MemberWSz","status":"EXPECTED"},{"customerIdentifier":"MemberQWU","status":"EXPECTED"}],"scheduledFor":"2019-02-20Z","location":{"street":"street3xaS","city":"cityk1FIN","region":"regionYq2aNj","postalCode":"1tZJ","countryCode":"TQ","country":"countryrhEymm"},"heldOn":null,"duration":null,"createdOn":"2019-01-08T06:23:55.04Z","createdBy":"ranefer"},{"meetingSequence":5,"groupIdentifier":"grphIR","currentCycle":1,"attendees":[{"customerIdentifier":"MemberWSz","status":"EXPECTED"},{"customerIdentifier":"MemberQWU","status":"EXPECTED"}],"scheduledFor":"2019-02-13Z","location":{"street":"street3xaS","city":"cityk1FIN","region":"regionYq2aNj","postalCode":"1tZJ","countryCode":"TQ","country":"countryrhEymm"},"heldOn":null,"duration":null,"createdOn":"2019-01-08T06:23:55.036Z","createdBy":"ranefer"},{"meetingSequence":4,"groupIdentifier":"grphIR","currentCycle":1,"attendees":[{"customerIdentifier":"MemberWSz","status":"EXPECTED"},{"customerIdentifier":"MemberQWU","status":"EXPECTED"}],"scheduledFor":"2019-02-06Z","location":{"street":"street3xaS","city":"cityk1FIN","region":"regionYq2aNj","postalCode":"1tZJ","countryCode":"TQ","country":"countryrhEymm"},"heldOn":null,"duration":null,"createdOn":"2019-01-08T06:23:55.031Z","createdBy":"ranefer"},{"meetingSequence":3,"groupIdentifier":"grphIR","currentCycle":1,"attendees":[{"customerIdentifier":"MemberQWU","status":"EXPECTED"},{"customerIdentifier":"MemberWSz","status":"EXPECTED"}],"scheduledFor":"2019-01-30Z","location":{"street":"street3xaS","city":"cityk1FIN","region":"regionYq2aNj","postalCode":"1tZJ","countryCode":"TQ","country":"countryrhEymm"},"heldOn":null,"duration":null,"createdOn":"2019-01-08T06:23:55.027Z","createdBy":"ranefer"},{"meetingSequence":2,"groupIdentifier":"grphIR","currentCycle":1,"attendees":[{"customerIdentifier":"MemberWSz","status":"EXPECTED"},{"customerIdentifier":"MemberQWU","status":"EXPECTED"}],"scheduledFor":"2019-01-23Z","location":{"street":"street3xaS","city":"cityk1FIN","region":"regionYq2aNj","postalCode":"1tZJ","countryCode":"TQ","country":"countryrhEymm"},"heldOn":null,"duration":null,"createdOn":"2019-01-08T06:23:55.021Z","createdBy":"ranefer"},{"meetingSequence":1,"groupIdentifier":"grphIR","currentCycle":1,"attendees":[{"customerIdentifier":"MemberQWU","status":"EXPECTED"},{"customerIdentifier":"MemberWSz","status":"EXPECTED"}],"scheduledFor":"2019-01-16Z","location":{"street":"street3xaS","city":"cityk1FIN","region":"regionYq2aNj","postalCode":"1tZJ","countryCode":"TQ","country":"countryrhEymm"},"heldOn":null,"duration":null,"createdOn":"2019-01-08T06:23:55.017Z","createdBy":"ranefer"}]</code></pre>
+</div>
+</div>
+<hr>
+<div class="listingblock">
+<div class="title">request</div>
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">GET /groups/grp0Bs HTTP/1.1
+Accept: */*
+Content-Type: application/json
+Host: localhost:8080</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">response</div>
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
+Content-Type: application/json;charset=UTF-8
+Content-Length: 580
+
+{
+  "identifier" : "grp0Bs",
+  "groupDefinitionIdentifier" : "grpDefPER",
+  "name" : "SDLE Group",
+  "leaders" : [ "Ndi", "Mele" ],
+  "members" : [ "Awasom", "Kamgue", "Etta" ],
+  "office" : "Bambui",
+  "assignedEmployee" : "Tabah Tih",
+  "weekday" : 6,
+  "status" : "PENDING",
+  "address" : {
+    "street" : "Ghana Street",
+    "city" : "Bamenda",
+    "region" : "NWR",
+    "postalCode" : "8050",
+    "countryCode" : "CM",
+    "country" : "Cameroon"
+  },
+  "createdOn" : "2019-01-08T06:23:54.55Z",
+  "createdBy" : "ranefer",
+  "lastModifiedOn" : null,
+  "lastModifiedBy" : null
+}</code></pre>
+</div>
+</div>
+<hr>
+<div class="listingblock">
+<div class="title">request</div>
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">GET /groups/grpmDg/commands HTTP/1.1
+Accept: */*
+Content-Type: application/json
+Host: localhost:8080</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">response</div>
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
+Content-Type: application/json;charset=UTF-8
+Content-Length: 133
 
 [ {
-  "identifier" : "identity__v1__roles",
-  "permittables" : [ {
-    "path" : "identity-v1/roles/*",
-    "method" : "GET",
-    "groupId" : null,
-    "acceptTokenIntendedForForeignApplication" : false
-  }, {
-    "path" : "identity-v1/roles/*",
-    "method" : "POST",
-    "groupId" : null,
-    "acceptTokenIntendedForForeignApplication" : false
-  }, {
-    "path" : "identity-v1/roles/*",
-    "method" : "PUT",
-    "groupId" : null,
-    "acceptTokenIntendedForForeignApplication" : false
-  }, {
-    "path" : "identity-v1/roles/*",
-    "method" : "DELETE",
-    "groupId" : null,
-    "acceptTokenIntendedForForeignApplication" : false
-  }, {
-    "path" : "identity-v1/permittablegroups/*",
-    "method" : "GET",
-    "groupId" : null,
-    "acceptTokenIntendedForForeignApplication" : false
-  }, {
-    "path" : "identity-v1/permittablegroups/*",
-    "method" : "POST",
-    "groupId" : null,
-    "acceptTokenIntendedForForeignApplication" : false
-  }, {
-    "path" : "identity-v1/permittablegroups/*",
-    "method" : "PUT",
-    "groupId" : null,
-    "acceptTokenIntendedForForeignApplication" : false
-  }, {
-    "path" : "identity-v1/permittablegroups/*",
-    "method" : "DELETE",
-    "groupId" : null,
-    "acceptTokenIntendedForForeignApplication" : false
-  } ]
-}, {
-  "identifier" : "identity__v1__self",
-  "permittables" : [ {
-    "path" : "identity-v1/users/{useridentifier}/password",
-    "method" : "GET",
-    "groupId" : null,
-    "acceptTokenIntendedForForeignApplication" : false
-  }, {
-    "path" : "identity-v1/users/{useridentifier}/password",
-    "method" : "POST",
-    "groupId" : null,
-    "acceptTokenIntendedForForeignApplication" : false
-  }, {
-    "path" : "identity-v1/users/{useridentifier}/password",
-    "method" : "PUT",
-    "groupId" : null,
-    "acceptTokenIntendedForForeignApplication" : false
-  }, {
-    "path" : "identity-v1/users/{useridentifier}/password",
-    "method" : "DELETE",
-    "groupId" : null,
-    "acceptTokenIntendedForForeignApplication" : false
-  }, {
-    "path" : "identity-v1/applications/*/permissions/*/users/{useridentifier}/enabled",
-    "method" : "GET",
-    "groupId" : null,
-    "acceptTokenIntendedForForeignApplication" : false
-  }, {
-    "path" : "identity-v1/applications/*/permissions/*/users/{useridentifier}/enabled",
-    "method" : "POST",
-    "groupId" : null,
-    "acceptTokenIntendedForForeignApplication" : false
-  }, {
-    "path" : "identity-v1/applications/*/permissions/*/users/{useridentifier}/enabled",
-    "method" : "PUT",
-    "groupId" : null,
-    "acceptTokenIntendedForForeignApplication" : false
-  }, {
-    "path" : "identity-v1/applications/*/permissions/*/users/{useridentifier}/enabled",
-    "method" : "DELETE",
-    "groupId" : null,
-    "acceptTokenIntendedForForeignApplication" : false
-  } ]
-}, {
-  "identifier" : "identity__v1__users",
-  "permittables" : [ {
-    "path" : "identity-v1/users/*",
-    "method" : "GET",
-    "groupId" : null,
-    "acceptTokenIntendedForForeignApplication" : false
-  }, {
-    "path" : "identity-v1/users/*",
-    "method" : "POST",
-    "groupId" : null,
-    "acceptTokenIntendedForForeignApplication" : false
-  }, {
-    "path" : "identity-v1/users/*",
-    "method" : "PUT",
-    "groupId" : null,
-    "acceptTokenIntendedForForeignApplication" : false
-  }, {
-    "path" : "identity-v1/users/*",
-    "method" : "DELETE",
-    "groupId" : null,
-    "acceptTokenIntendedForForeignApplication" : false
-  } ]
-}, {
-  "identifier" : "pgroup4",
-  "permittables" : [ {
-    "path" : "/exx/eyy/eze",
-    "method" : "POST",
-    "groupId" : "id",
-    "acceptTokenIntendedForForeignApplication" : false
-  } ]
-}, {
-  "identifier" : "pgroup14",
-  "permittables" : [ {
-    "path" : "/exx/eyy/eze",
-    "method" : "POST",
-    "groupId" : "id",
-    "acceptTokenIntendedForForeignApplication" : false
-  } ]
-}, {
-  "identifier" : "identity__v1__app_self",
-  "permittables" : [ {
-    "path" : "identity-v1/applications/{applicationidentifier}/permissions",
-    "method" : "GET",
-    "groupId" : null,
-    "acceptTokenIntendedForForeignApplication" : false
-  }, {
-    "path" : "identity-v1/applications/{applicationidentifier}/permissions",
-    "method" : "POST",
-    "groupId" : null,
-    "acceptTokenIntendedForForeignApplication" : false
-  }, {
-    "path" : "identity-v1/applications/{applicationidentifier}/permissions",
-    "method" : "PUT",
-    "groupId" : null,
-    "acceptTokenIntendedForForeignApplication" : false
-  }, {
-    "path" : "identity-v1/applications/{applicationidentifier}/permissions",
-    "method" : "DELETE",
-    "groupId" : null,
-    "acceptTokenIntendedForForeignApplication" : false
-  } ]
-}, {
-  "identifier" : "group1",
-  "permittables" : [ {
-    "path" : "/exx/eyy/eze",
-    "method" : "POST",
-    "groupId" : "id",
-    "acceptTokenIntendedForForeignApplication" : false
-  } ]
-}, {
-  "identifier" : "pgroup13",
-  "permittables" : [ {
-    "path" : "/exx/eyy/eze",
-    "method" : "POST",
-    "groupId" : "id",
-    "acceptTokenIntendedForForeignApplication" : false
-  } ]
+  "action" : "ACTIVATE",
+  "note" : "Activate Note sz8",
+  "createdBy" : "ranefer",
+  "createdOn" : "2019-01-08T06:23:52.14Z"
 } ]</code></pre>
 </div>
 </div>
@@ -858,341 +657,17 @@ Content-Length: 4985
 <div class="listingblock">
 <div class="title">request</div>
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">GET /users HTTP/1.1
-Accept: */*
-Content-Type: application/json
-Host: localhost:8080</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">response</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
-Content-Type: application/json;charset=UTF-8
-Content-Length: 231
-
-[ {
-  "identifier" : "Ahmes5",
-  "role" : "pharaoh"
-}, {
-  "identifier" : "Ahmes_Other_friend",
-  "role" : "cobbler"
-}, {
-  "identifier" : "antony",
-  "role" : "pharaoh"
-}, {
-  "identifier" : "Ahmes_friend",
-  "role" : "scribe"
-} ]</code></pre>
-</div>
-</div>
-<hr>
-<div class="listingblock">
-<div class="title">request</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">GET /permittablegroups/pgroup4 HTTP/1.1
-Accept: */*
-Content-Type: application/json
-Host: localhost:8080</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">response</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
-Content-Type: application/json;charset=UTF-8
-Content-Length: 189
-
-{
-  "identifier" : "pgroup4",
-  "permittables" : [ {
-    "path" : "/exx/eyy/eze",
-    "method" : "POST",
-    "groupId" : "id",
-    "acceptTokenIntendedForForeignApplication" : false
-  } ]
-}</code></pre>
-</div>
-</div>
-<hr>
-<div class="listingblock">
-<div class="title">request</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">GET /roles HTTP/1.1
-Accept: */*
-Content-Type: application/json
-Host: localhost:8080</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">response</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
-Content-Type: application/json;charset=UTF-8
-Content-Length: 1131
-
-[ {
-  "identifier" : "pharaoh",
-  "permissions" : [ {
-    "permittableEndpointGroupIdentifier" : "identity__v1__roles",
-    "allowedOperations" : [ "READ", "CHANGE", "DELETE" ]
-  }, {
-    "permittableEndpointGroupIdentifier" : "identity__v1__users",
-    "allowedOperations" : [ "READ", "CHANGE", "DELETE" ]
-  }, {
-    "permittableEndpointGroupIdentifier" : "identity__v1__self",
-    "allowedOperations" : [ "READ", "CHANGE", "DELETE" ]
-  }, {
-    "permittableEndpointGroupIdentifier" : "identity__v1__app_self",
-    "allowedOperations" : [ "READ", "CHANGE", "DELETE" ]
-  } ]
-}, {
-  "identifier" : "scribe11",
-  "permissions" : [ {
-    "permittableEndpointGroupIdentifier" : "identity__v1__roles",
-    "allowedOperations" : [ "READ", "CHANGE", "DELETE" ]
-  } ]
-}, {
-  "identifier" : "scribe6",
-  "permissions" : [ {
-    "permittableEndpointGroupIdentifier" : "identity__v1__roles",
-    "allowedOperations" : [ "READ", "CHANGE", "DELETE" ]
-  } ]
-}, {
-  "identifier" : "scribe8",
-  "permissions" : [ {
-    "permittableEndpointGroupIdentifier" : "identity__v1__roles",
-    "allowedOperations" : [ "READ", "CHANGE", "DELETE" ]
-  } ]
-} ]</code></pre>
-</div>
-</div>
-<hr>
-<div class="listingblock">
-<div class="title">request</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">GET /users/Ahmes_friend_three HTTP/1.1
-Accept: */*
-Content-Type: application/json
-Host: localhost:8080</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">response</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
-Content-Type: application/json;charset=UTF-8
-Content-Length: 68
-
-{
-  "identifier" : "Ahmes_friend_three",
-  "role" : "scribe_three"
-}</code></pre>
-</div>
-</div>
-<hr>
-<div class="listingblock">
-<div class="title">request</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">GET /applications/test983-v1/callendpointset/end_pt_set17 HTTP/1.1
-Accept: */*
-Content-Type: application/json
-Host: localhost:8080</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">response</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
-Content-Type: application/json;charset=UTF-8
-Content-Length: 103
-
-{
-  "identifier" : "end_pt_set17",
-  "permittableEndpointGroupIdentifiers" : [ "ideeOne", "ideeTwo" ]
-}</code></pre>
-</div>
-</div>
-<hr>
-<div class="listingblock">
-<div class="title">request</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">GET /applications/test145-v1/callendpointset HTTP/1.1
-Accept: */*
-Content-Type: application/json
-Host: localhost:8080</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">response</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
-Content-Type: application/json;charset=UTF-8
-Content-Length: 198
-
-[ {
-  "identifier" : "end_pt_set2",
-  "permittableEndpointGroupIdentifiers" : [ "ideeOne", "ideeTwo" ]
-}, {
-  "identifier" : "endptset3",
-  "permittableEndpointGroupIdentifiers" : [ "ideeZero" ]
-} ]</code></pre>
-</div>
-</div>
-<hr>
-<div class="listingblock">
-<div class="title">request</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">GET /applications/testApp497-v1/permissions/identity__v1__users HTTP/1.1
-Accept: */*
-Content-Type: application/json
-Host: localhost:8080</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">response</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
-Content-Type: application/json;charset=UTF-8
-Content-Length: 104
-
-{
-  "permittableEndpointGroupIdentifier" : "identity__v1__users",
-  "allowedOperations" : [ "CHANGE" ]
-}</code></pre>
-</div>
-</div>
-<hr>
-<div class="listingblock">
-<div class="title">request</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">GET /applications/testApp756-v1/permissions HTTP/1.1
-Accept: */*
-Content-Type: application/json
-Host: localhost:8080</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">response</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
-Content-Type: application/json;charset=UTF-8
-Content-Length: 214
-
-[ {
-  "permittableEndpointGroupIdentifier" : "identity__v1__roles",
-  "allowedOperations" : [ "DELETE" ]
-}, {
-  "permittableEndpointGroupIdentifier" : "identity__v1__users",
-  "allowedOperations" : [ "CHANGE" ]
-} ]</code></pre>
-</div>
-</div>
-<hr>
-<div class="listingblock">
-<div class="title">request</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">GET /applications/testApp679-v1/signatures/2019-01-07T21_31_14 HTTP/1.1
+<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">POST /groups/grpy3y/commands HTTP/1.1
 Accept: application/json
-Content-Type: */*
-Host: localhost:8080</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">response</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
-Content-Type: application/json;charset=UTF-8
-Content-Length: 666
-
-{
-  "publicKeyMod" : 23698408828387887007759056361929392323219724665396063078856163177015792510341269502958457041680859099048302187142387547902559760394423897674323086453292304548662059698923489979966384238005978204883680452838500985957344697762149482123438802018293592682324394020942208031620416714684132895518250366821850985779245436182595396996098117859633224960240827358404119961045841556308248323031792723431562716350672431131542004538232457954865018322165503196061135799831799764027463961376026405283664929889115038472546897421655373142792346765719606165972497574908771905007193674516987441082916876853628662717725937075475114130669,
-  "publicKeyExp" : 65537
-}</code></pre>
-</div>
-</div>
-<hr>
-<div class="listingblock">
-<div class="title">request</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">GET /applications HTTP/1.1
-Accept: */*
 Content-Type: application/json
-Host: localhost:8080</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">response</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
-Content-Type: application/json;charset=UTF-8
-Content-Length: 185
-
-[ "test145-v1", "testApp679-v1", "test306-v1", "testApp756-v1", "testApp010-v1", "test435-v1", "test670-v1", "test052-v1", "test046-v1", "test983-v1", "testApp039-v1", "testApp497-v1" ]</code></pre>
-</div>
-</div>
-<hr>
-<div class="listingblock">
-<div class="title">request</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">GET /roles/scribe6 HTTP/1.1
-Accept: */*
-Content-Type: application/json
-Host: localhost:8080</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">response</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
-Content-Type: application/json;charset=UTF-8
-Content-Length: 182
-
-{
-  "identifier" : "scribe6",
-  "permissions" : [ {
-    "permittableEndpointGroupIdentifier" : "identity__v1__roles",
-    "allowedOperations" : [ "READ", "CHANGE", "DELETE" ]
-  } ]
-}</code></pre>
-</div>
-</div>
-<hr>
-<div class="listingblock">
-<div class="title">request</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">GET /users/Ahmes_friend_Two/permissions HTTP/1.1
-Accept: */*
-Content-Type: application/json
-Host: localhost:8080</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">response</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
-Content-Type: application/json;charset=UTF-8
+Host: localhost:8080
 Content-Length: 125
 
-[ {
-  "permittableEndpointGroupIdentifier" : "identity__v1__self",
-  "allowedOperations" : [ "READ", "CHANGE", "DELETE" ]
-} ]</code></pre>
-</div>
-</div>
-<hr>
-<div class="listingblock">
-<div class="title">request</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">PUT /applications/testApp039-v1/signatures/2019-01-07T21_30_42 HTTP/1.1
-Accept: application/json
-Content-Type: application/json
-Host: localhost:8080
-Content-Length: 666
-
 {
-  "publicKeyMod" : 25166214691790286735384163191744735862952736814132676797445322263658312116891723379167192777014222566629391722222450714891253445973041926910156344026651525020969080923185785716219710750628126607011145277528311663913679787928720911272724721635401122412222090479028003048960358172656894147449168766593466021298918574104131542166110902357625148073033907648865545995233381576371574226273904449750068561223643100423682717085579407490174972536151812919910362257878349050063977567525170087219364084920216676665667502771421297672860629650645764556963769394080380328567804686311257209403933036508299795273795456350870919187683,
-  "publicKeyExp" : 65537
+  "action" : "REOPEN",
+  "note" : "Reopen Note9ju",
+  "createdBy" : "ranefer",
+  "createdOn" : "2019-01-08T06:23:49.507Z"
 }</code></pre>
 </div>
 </div>
@@ -1206,19 +681,118 @@ Content-Length: 666
 <div class="listingblock">
 <div class="title">request</div>
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">PUT /roles/scribe23 HTTP/1.1
+<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">PUT /groups/grpLPp/employee HTTP/1.1
+Accept: */*
+Content-Type: application/json
+Host: localhost:8080
+Content-Length: 31
+
+{
+  "identifier" : "EmplyHnb"
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">response</div>
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 202 Accepted</code></pre>
+</div>
+</div>
+<hr>
+<div class="listingblock">
+<div class="title">request</div>
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">PUT /groups/grpiSx HTTP/1.1
 Accept: application/json
 Content-Type: application/json
 Host: localhost:8080
-Content-Length: 183
+Content-Length: 469
 
 {
-  "identifier" : "scribe23",
-  "permissions" : [ {
-    "permittableEndpointGroupIdentifier" : "identity__v1__users",
-    "allowedOperations" : [ "READ", "CHANGE", "DELETE" ]
-  } ]
+  "identifier" : "grpiSx",
+  "groupDefinitionIdentifier" : "grpDefkb1",
+  "name" : "groupNameogUpdated",
+  "leaders" : [ "LeaderOnu", "Leader88e" ],
+  "members" : [ "Member7S0", "Member9ox" ],
+  "office" : "officeKQuu",
+  "assignedEmployee" : "employeeC4Q",
+  "weekday" : 6,
+  "address" : {
+    "street" : "streetA1Dy",
+    "city" : "cityLSykc",
+    "region" : "regionLTh496",
+    "postalCode" : "sjRi",
+    "countryCode" : "LX",
+    "country" : "countryc2Okd2"
+  }
 }</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">response</div>
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 202 Accepted</code></pre>
+</div>
+</div>
+<hr>
+<div class="listingblock">
+<div class="title">request</div>
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">PUT /definitions/grpDefes1 HTTP/1.1
+Accept: application/json
+Content-Type: application/json
+Host: localhost:8080
+Content-Length: 234
+
+{
+  "identifier" : "grpDefes1",
+  "description" : "Group Def Descr CWeJs",
+  "minimalSize" : 10,
+  "maximalSize" : 30,
+  "cycle" : {
+    "numberOfMeetings" : 25,
+    "frequency" : "WEEKLY",
+    "adjustment" : "NEXT_BUSINESS_DAY"
+  }
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">response</div>
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 202 Accepted</code></pre>
+</div>
+</div>
+<hr>
+<div class="listingblock">
+<div class="title">request</div>
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">PUT /groups/grp6gT/leaders HTTP/1.1
+Accept: */*
+Content-Type: application/json
+Host: localhost:8080
+Content-Length: 33
+
+["LeaderSEo","Leadersy2","BnVEf"]</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">response</div>
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 202 Accepted</code></pre>
+</div>
+</div>
+<hr>
+<div class="listingblock">
+<div class="title">request</div>
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">PUT /groups/grpNSm/members HTTP/1.1
+Accept: */*
+Content-Type: application/json
+Host: localhost:8080
+Content-Length: 49
+
+["MembervLc","Member323","MemberHtU","MemberVjJ"]</code></pre>
 </div>
 </div>
 <div class="listingblock">

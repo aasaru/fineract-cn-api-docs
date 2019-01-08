@@ -5,7 +5,7 @@
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.3">
-<title>identity-cn documentation</title>
+<title>teller-cn documentation</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
@@ -419,7 +419,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="book">
 <div id="header">
-<h1>identity-cn documentation</h1>
+<h1>teller-cn documentation</h1>
 </div>
 <div id="content">
 <div id="preamble">
@@ -427,37 +427,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="listingblock">
 <div class="title">request</div>
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">PUT /applications/test670-v1/callendpointset/end_pt_set16 HTTP/1.1
-Accept: */*
+<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">POST /teller/tellerpUM/transactions/ImrGicYWqUAeSoMji5dSE8W09N1Qcj1h HTTP/1.1
 Content-Type: application/json
-Host: localhost:8080
-Content-Length: 103
-
-{
-  "identifier" : "end_pt_set16",
-  "permittableEndpointGroupIdentifiers" : [ "ideeOne", "ideeTwo" ]
-}</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">response</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 202 Accepted</code></pre>
-</div>
-</div>
-<hr>
-<div class="listingblock">
-<div class="title">request</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">PUT /users/Daddy/password HTTP/1.1
 Accept: application/json
-Content-Type: application/json
 Host: localhost:8080
-Content-Length: 37
 
-{
-  "password" : "c2VraGVtRGFkZHk="
-}</code></pre>
+command=CANCEL&amp;charges=excluded</code></pre>
 </div>
 </div>
 <div class="listingblock">
@@ -470,36 +445,51 @@ Content-Length: 37
 <div class="listingblock">
 <div class="title">request</div>
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">PUT /users/Ahmes_friend_One/roleIdentifier HTTP/1.1
+<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">POST /teller/tellerpUM/transactions HTTP/1.1
+Content-Type: application/json
 Accept: application/json
-Content-Type: application/json
 Host: localhost:8080
-Content-Length: 30
+Content-Length: 250
 
 {
-  "identifier" : "cobbler"
+  "transactionType" : "ACCC",
+  "transactionDate" : "2019-01-08T06:46:25.861Z",
+  "customerIdentifier" : "CustomerTwo",
+  "productIdentifier" : "product102",
+  "customerAccountIdentifier" : "Customer002",
+  "clerk" : "homer",
+  "amount" : 1234.56
 }</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title">response</div>
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 202 Accepted</code></pre>
+<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
+Content-Type: application/json;charset=UTF-8
+Content-Length: 118
+
+{
+  "tellerTransactionIdentifier" : "9zerUltOdFxNurIoG02k3PWk3fPOC98X",
+  "totalAmount" : 1234.56,
+  "charges" : [ ]
+}</code></pre>
 </div>
 </div>
 <hr>
 <div class="listingblock">
 <div class="title">request</div>
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">POST /applications/test435-v1/callendpointset HTTP/1.1
+<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">POST /offices/antananarivo/teller/7239/commands HTTP/1.1
+Content-Type: application/json
 Accept: application/json
-Content-Type: application/json
 Host: localhost:8080
-Content-Length: 82
+Content-Length: 91
 
 {
-  "identifier" : "end_pt_set15",
-  "permittableEndpointGroupIdentifiers" : [ ]
+  "action" : "CLOSE",
+  "adjustment" : "NONE",
+  "assignedEmployeeIdentifier" : "Antah"
 }</code></pre>
 </div>
 </div>
@@ -513,43 +503,12 @@ Content-Length: 82
 <div class="listingblock">
 <div class="title">request</div>
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">POST /applications/testApp879-v1/permissions HTTP/1.1
-Accept: */*
+<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">POST /teller/tellerpUM/transactions/e24C2TrK3hNZGdGnnnzcTouIuQXiJAzl HTTP/1.1
 Content-Type: application/json
-Host: localhost:8080
-Content-Length: 102
-
-{
-  "permittableEndpointGroupIdentifier" : "identity__v1__users",
-  "allowedOperations" : [ "READ" ]
-}</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">response</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 202 Accepted</code></pre>
-</div>
-</div>
-<hr>
-<div class="listingblock">
-<div class="title">request</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">POST /permittablegroups HTTP/1.1
 Accept: application/json
-Content-Type: application/json
 Host: localhost:8080
-Content-Length: 188
 
-{
-  "identifier" : "group1",
-  "permittables" : [ {
-    "path" : "/exx/eyy/eze",
-    "method" : "POST",
-    "groupId" : "id",
-    "acceptTokenIntendedForForeignApplication" : false
-  } ]
-}</code></pre>
+command=CONFIRM&amp;charges=included</code></pre>
 </div>
 </div>
 <div class="listingblock">
@@ -562,18 +521,22 @@ Content-Length: 188
 <div class="listingblock">
 <div class="title">request</div>
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">POST /roles HTTP/1.1
+<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">POST /offices/office1234/teller/ HTTP/1.1
+Content-Type: application/json
 Accept: application/json
-Content-Type: application/json
 Host: localhost:8080
-Content-Length: 182
+Content-Length: 317
 
 {
-  "identifier" : "scribe8",
-  "permissions" : [ {
-    "permittableEndpointGroupIdentifier" : "identity__v1__roles",
-    "allowedOperations" : [ "READ", "CHANGE", "DELETE" ]
-  } ]
+  "code" : "1234",
+  "password" : "password",
+  "cashdrawLimit" : 5000000,
+  "tellerAccountIdentifier" : "TEL123BA",
+  "vaultAccountIdentifier" : "TEL123BA",
+  "chequesReceivableAccount" : "CHA2018XYZ",
+  "cashOverShortAccount" : "CHA2018XYZ",
+  "denominationRequired" : false,
+  "assignedEmployee" : "Nakuve Lah"
 }</code></pre>
 </div>
 </div>
@@ -587,32 +550,9 @@ Content-Length: 182
 <div class="listingblock">
 <div class="title">request</div>
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">POST /users HTTP/1.1
+<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">DELETE /offices/kakeOne/teller/9876 HTTP/1.1
+Content-Type: application/json
 Accept: application/json
-Content-Type: application/json
-Host: localhost:8080
-Content-Length: 93
-
-{
-  "identifier" : "Ahmes_friend_zero",
-  "role" : "scribe_zero",
-  "password" : "c2VraGVt"
-}</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">response</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 202 Accepted</code></pre>
-</div>
-</div>
-<hr>
-<div class="listingblock">
-<div class="title">request</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">DELETE /applications/test099-v1 HTTP/1.1
-Accept: */*
-Content-Type: application/json
 Host: localhost:8080</code></pre>
 </div>
 </div>
@@ -626,57 +566,9 @@ Host: localhost:8080</code></pre>
 <div class="listingblock">
 <div class="title">request</div>
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">DELETE /applications/test052-v1/callendpointset/end_pt_set19 HTTP/1.1
-Accept: */*
+<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">GET /offices/office247/teller/ HTTP/1.1
 Content-Type: application/json
-Host: localhost:8080</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">response</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 202 Accepted</code></pre>
-</div>
-</div>
-<hr>
-<div class="listingblock">
-<div class="title">request</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">DELETE /applications/testApp010-v1/permissions/identity__v1__users HTTP/1.1
 Accept: */*
-Content-Type: application/json
-Host: localhost:8080</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">response</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 202 Accepted</code></pre>
-</div>
-</div>
-<hr>
-<div class="listingblock">
-<div class="title">request</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">DELETE /roles/scribe10 HTTP/1.1
-Accept: */*
-Content-Type: application/json
-Host: localhost:8080</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">response</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 202 Accepted</code></pre>
-</div>
-</div>
-<hr>
-<div class="listingblock">
-<div class="title">request</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">GET /permittablegroups HTTP/1.1
-Accept: */*
-Content-Type: application/json
 Host: localhost:8080</code></pre>
 </div>
 </div>
@@ -685,172 +577,42 @@ Host: localhost:8080</code></pre>
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
-Content-Length: 4985
+Content-Length: 1032
 
 [ {
-  "identifier" : "identity__v1__roles",
-  "permittables" : [ {
-    "path" : "identity-v1/roles/*",
-    "method" : "GET",
-    "groupId" : null,
-    "acceptTokenIntendedForForeignApplication" : false
-  }, {
-    "path" : "identity-v1/roles/*",
-    "method" : "POST",
-    "groupId" : null,
-    "acceptTokenIntendedForForeignApplication" : false
-  }, {
-    "path" : "identity-v1/roles/*",
-    "method" : "PUT",
-    "groupId" : null,
-    "acceptTokenIntendedForForeignApplication" : false
-  }, {
-    "path" : "identity-v1/roles/*",
-    "method" : "DELETE",
-    "groupId" : null,
-    "acceptTokenIntendedForForeignApplication" : false
-  }, {
-    "path" : "identity-v1/permittablegroups/*",
-    "method" : "GET",
-    "groupId" : null,
-    "acceptTokenIntendedForForeignApplication" : false
-  }, {
-    "path" : "identity-v1/permittablegroups/*",
-    "method" : "POST",
-    "groupId" : null,
-    "acceptTokenIntendedForForeignApplication" : false
-  }, {
-    "path" : "identity-v1/permittablegroups/*",
-    "method" : "PUT",
-    "groupId" : null,
-    "acceptTokenIntendedForForeignApplication" : false
-  }, {
-    "path" : "identity-v1/permittablegroups/*",
-    "method" : "DELETE",
-    "groupId" : null,
-    "acceptTokenIntendedForForeignApplication" : false
-  } ]
+  "code" : "412389",
+  "password" : null,
+  "cashdrawLimit" : 4000000.0,
+  "tellerAccountIdentifier" : "TEL412389C",
+  "vaultAccountIdentifier" : "TEL412389C",
+  "chequesReceivableAccount" : "CHA2018ABC",
+  "cashOverShortAccount" : "CHA2018ABC",
+  "denominationRequired" : false,
+  "assignedEmployee" : "Chi Ndi",
+  "state" : "CLOSED",
+  "createdBy" : "homer",
+  "createdOn" : "2019-01-08T06:46:32.248Z",
+  "lastModifiedBy" : null,
+  "lastModifiedOn" : null,
+  "lastOpenedBy" : null,
+  "lastOpenedOn" : null
 }, {
-  "identifier" : "identity__v1__self",
-  "permittables" : [ {
-    "path" : "identity-v1/users/{useridentifier}/password",
-    "method" : "GET",
-    "groupId" : null,
-    "acceptTokenIntendedForForeignApplication" : false
-  }, {
-    "path" : "identity-v1/users/{useridentifier}/password",
-    "method" : "POST",
-    "groupId" : null,
-    "acceptTokenIntendedForForeignApplication" : false
-  }, {
-    "path" : "identity-v1/users/{useridentifier}/password",
-    "method" : "PUT",
-    "groupId" : null,
-    "acceptTokenIntendedForForeignApplication" : false
-  }, {
-    "path" : "identity-v1/users/{useridentifier}/password",
-    "method" : "DELETE",
-    "groupId" : null,
-    "acceptTokenIntendedForForeignApplication" : false
-  }, {
-    "path" : "identity-v1/applications/*/permissions/*/users/{useridentifier}/enabled",
-    "method" : "GET",
-    "groupId" : null,
-    "acceptTokenIntendedForForeignApplication" : false
-  }, {
-    "path" : "identity-v1/applications/*/permissions/*/users/{useridentifier}/enabled",
-    "method" : "POST",
-    "groupId" : null,
-    "acceptTokenIntendedForForeignApplication" : false
-  }, {
-    "path" : "identity-v1/applications/*/permissions/*/users/{useridentifier}/enabled",
-    "method" : "PUT",
-    "groupId" : null,
-    "acceptTokenIntendedForForeignApplication" : false
-  }, {
-    "path" : "identity-v1/applications/*/permissions/*/users/{useridentifier}/enabled",
-    "method" : "DELETE",
-    "groupId" : null,
-    "acceptTokenIntendedForForeignApplication" : false
-  } ]
-}, {
-  "identifier" : "identity__v1__users",
-  "permittables" : [ {
-    "path" : "identity-v1/users/*",
-    "method" : "GET",
-    "groupId" : null,
-    "acceptTokenIntendedForForeignApplication" : false
-  }, {
-    "path" : "identity-v1/users/*",
-    "method" : "POST",
-    "groupId" : null,
-    "acceptTokenIntendedForForeignApplication" : false
-  }, {
-    "path" : "identity-v1/users/*",
-    "method" : "PUT",
-    "groupId" : null,
-    "acceptTokenIntendedForForeignApplication" : false
-  }, {
-    "path" : "identity-v1/users/*",
-    "method" : "DELETE",
-    "groupId" : null,
-    "acceptTokenIntendedForForeignApplication" : false
-  } ]
-}, {
-  "identifier" : "pgroup4",
-  "permittables" : [ {
-    "path" : "/exx/eyy/eze",
-    "method" : "POST",
-    "groupId" : "id",
-    "acceptTokenIntendedForForeignApplication" : false
-  } ]
-}, {
-  "identifier" : "pgroup14",
-  "permittables" : [ {
-    "path" : "/exx/eyy/eze",
-    "method" : "POST",
-    "groupId" : "id",
-    "acceptTokenIntendedForForeignApplication" : false
-  } ]
-}, {
-  "identifier" : "identity__v1__app_self",
-  "permittables" : [ {
-    "path" : "identity-v1/applications/{applicationidentifier}/permissions",
-    "method" : "GET",
-    "groupId" : null,
-    "acceptTokenIntendedForForeignApplication" : false
-  }, {
-    "path" : "identity-v1/applications/{applicationidentifier}/permissions",
-    "method" : "POST",
-    "groupId" : null,
-    "acceptTokenIntendedForForeignApplication" : false
-  }, {
-    "path" : "identity-v1/applications/{applicationidentifier}/permissions",
-    "method" : "PUT",
-    "groupId" : null,
-    "acceptTokenIntendedForForeignApplication" : false
-  }, {
-    "path" : "identity-v1/applications/{applicationidentifier}/permissions",
-    "method" : "DELETE",
-    "groupId" : null,
-    "acceptTokenIntendedForForeignApplication" : false
-  } ]
-}, {
-  "identifier" : "group1",
-  "permittables" : [ {
-    "path" : "/exx/eyy/eze",
-    "method" : "POST",
-    "groupId" : "id",
-    "acceptTokenIntendedForForeignApplication" : false
-  } ]
-}, {
-  "identifier" : "pgroup13",
-  "permittables" : [ {
-    "path" : "/exx/eyy/eze",
-    "method" : "POST",
-    "groupId" : "id",
-    "acceptTokenIntendedForForeignApplication" : false
-  } ]
+  "code" : "512389",
+  "password" : null,
+  "cashdrawLimit" : 5000000.0,
+  "tellerAccountIdentifier" : "TEL512389D",
+  "vaultAccountIdentifier" : "TEL512389D",
+  "chequesReceivableAccount" : "DHA2018ABD",
+  "cashOverShortAccount" : "DHA2018ABD",
+  "denominationRequired" : false,
+  "assignedEmployee" : "Chia Chenjo",
+  "state" : "CLOSED",
+  "createdBy" : "homer",
+  "createdOn" : "2019-01-08T06:46:32.299Z",
+  "lastModifiedBy" : null,
+  "lastModifiedOn" : null,
+  "lastOpenedBy" : null,
+  "lastOpenedOn" : null
 } ]</code></pre>
 </div>
 </div>
@@ -858,9 +620,9 @@ Content-Length: 4985
 <div class="listingblock">
 <div class="title">request</div>
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">GET /users HTTP/1.1
-Accept: */*
+<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">GET /offices/office412/teller/4123 HTTP/1.1
 Content-Type: application/json
+Accept: */*
 Host: localhost:8080</code></pre>
 </div>
 </div>
@@ -869,48 +631,25 @@ Host: localhost:8080</code></pre>
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
-Content-Length: 231
-
-[ {
-  "identifier" : "Ahmes5",
-  "role" : "pharaoh"
-}, {
-  "identifier" : "Ahmes_Other_friend",
-  "role" : "cobbler"
-}, {
-  "identifier" : "antony",
-  "role" : "pharaoh"
-}, {
-  "identifier" : "Ahmes_friend",
-  "role" : "scribe"
-} ]</code></pre>
-</div>
-</div>
-<hr>
-<div class="listingblock">
-<div class="title">request</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">GET /permittablegroups/pgroup4 HTTP/1.1
-Accept: */*
-Content-Type: application/json
-Host: localhost:8080</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">response</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
-Content-Type: application/json;charset=UTF-8
-Content-Length: 189
+Content-Length: 500
 
 {
-  "identifier" : "pgroup4",
-  "permittables" : [ {
-    "path" : "/exx/eyy/eze",
-    "method" : "POST",
-    "groupId" : "id",
-    "acceptTokenIntendedForForeignApplication" : false
-  } ]
+  "code" : "4123",
+  "password" : null,
+  "cashdrawLimit" : 4.0,
+  "tellerAccountIdentifier" : "TEL412AC",
+  "vaultAccountIdentifier" : "TEL412AC",
+  "chequesReceivableAccount" : "CHA2018AB",
+  "cashOverShortAccount" : "CHA2018AB",
+  "denominationRequired" : false,
+  "assignedEmployee" : "Chi Ndohah",
+  "state" : "CLOSED",
+  "createdBy" : "homer",
+  "createdOn" : "2019-01-08T06:46:25.385Z",
+  "lastModifiedBy" : null,
+  "lastModifiedOn" : null,
+  "lastOpenedBy" : null,
+  "lastOpenedOn" : null
 }</code></pre>
 </div>
 </div>
@@ -918,9 +657,9 @@ Content-Length: 189
 <div class="listingblock">
 <div class="title">request</div>
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">GET /roles HTTP/1.1
-Accept: */*
+<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">GET /offices/fesse/teller/kombone987/balance HTTP/1.1
 Content-Type: application/json
+Accept: */*
 Host: localhost:8080</code></pre>
 </div>
 </div>
@@ -929,64 +668,16 @@ Host: localhost:8080</code></pre>
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
-Content-Length: 1131
-
-[ {
-  "identifier" : "pharaoh",
-  "permissions" : [ {
-    "permittableEndpointGroupIdentifier" : "identity__v1__roles",
-    "allowedOperations" : [ "READ", "CHANGE", "DELETE" ]
-  }, {
-    "permittableEndpointGroupIdentifier" : "identity__v1__users",
-    "allowedOperations" : [ "READ", "CHANGE", "DELETE" ]
-  }, {
-    "permittableEndpointGroupIdentifier" : "identity__v1__self",
-    "allowedOperations" : [ "READ", "CHANGE", "DELETE" ]
-  }, {
-    "permittableEndpointGroupIdentifier" : "identity__v1__app_self",
-    "allowedOperations" : [ "READ", "CHANGE", "DELETE" ]
-  } ]
-}, {
-  "identifier" : "scribe11",
-  "permissions" : [ {
-    "permittableEndpointGroupIdentifier" : "identity__v1__roles",
-    "allowedOperations" : [ "READ", "CHANGE", "DELETE" ]
-  } ]
-}, {
-  "identifier" : "scribe6",
-  "permissions" : [ {
-    "permittableEndpointGroupIdentifier" : "identity__v1__roles",
-    "allowedOperations" : [ "READ", "CHANGE", "DELETE" ]
-  } ]
-}, {
-  "identifier" : "scribe8",
-  "permissions" : [ {
-    "permittableEndpointGroupIdentifier" : "identity__v1__roles",
-    "allowedOperations" : [ "READ", "CHANGE", "DELETE" ]
-  } ]
-} ]</code></pre>
-</div>
-</div>
-<hr>
-<div class="listingblock">
-<div class="title">request</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">GET /users/Ahmes_friend_three HTTP/1.1
-Accept: */*
-Content-Type: application/json
-Host: localhost:8080</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">response</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
-Content-Type: application/json;charset=UTF-8
-Content-Length: 68
+Content-Length: 173
 
 {
-  "identifier" : "Ahmes_friend_three",
-  "role" : "scribe_three"
+  "day" : null,
+  "cashOnHand" : 0,
+  "cashReceivedTotal" : 0,
+  "cashDisbursedTotal" : 0,
+  "chequesReceivedTotal" : 0,
+  "cashEntries" : null,
+  "chequeEntries" : null
 }</code></pre>
 </div>
 </div>
@@ -994,205 +685,51 @@ Content-Length: 68
 <div class="listingblock">
 <div class="title">request</div>
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">GET /applications/test983-v1/callendpointset/end_pt_set17 HTTP/1.1
-Accept: */*
+<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">POST /teller/tellerpUM/transactions HTTP/1.1
 Content-Type: application/json
-Host: localhost:8080</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">response</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
-Content-Type: application/json;charset=UTF-8
-Content-Length: 103
-
-{
-  "identifier" : "end_pt_set17",
-  "permittableEndpointGroupIdentifiers" : [ "ideeOne", "ideeTwo" ]
-}</code></pre>
-</div>
-</div>
-<hr>
-<div class="listingblock">
-<div class="title">request</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">GET /applications/test145-v1/callendpointset HTTP/1.1
-Accept: */*
-Content-Type: application/json
-Host: localhost:8080</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">response</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
-Content-Type: application/json;charset=UTF-8
-Content-Length: 198
-
-[ {
-  "identifier" : "end_pt_set2",
-  "permittableEndpointGroupIdentifiers" : [ "ideeOne", "ideeTwo" ]
-}, {
-  "identifier" : "endptset3",
-  "permittableEndpointGroupIdentifiers" : [ "ideeZero" ]
-} ]</code></pre>
-</div>
-</div>
-<hr>
-<div class="listingblock">
-<div class="title">request</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">GET /applications/testApp497-v1/permissions/identity__v1__users HTTP/1.1
-Accept: */*
-Content-Type: application/json
-Host: localhost:8080</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">response</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
-Content-Type: application/json;charset=UTF-8
-Content-Length: 104
-
-{
-  "permittableEndpointGroupIdentifier" : "identity__v1__users",
-  "allowedOperations" : [ "CHANGE" ]
-}</code></pre>
-</div>
-</div>
-<hr>
-<div class="listingblock">
-<div class="title">request</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">GET /applications/testApp756-v1/permissions HTTP/1.1
-Accept: */*
-Content-Type: application/json
-Host: localhost:8080</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">response</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
-Content-Type: application/json;charset=UTF-8
-Content-Length: 214
-
-[ {
-  "permittableEndpointGroupIdentifier" : "identity__v1__roles",
-  "allowedOperations" : [ "DELETE" ]
-}, {
-  "permittableEndpointGroupIdentifier" : "identity__v1__users",
-  "allowedOperations" : [ "CHANGE" ]
-} ]</code></pre>
-</div>
-</div>
-<hr>
-<div class="listingblock">
-<div class="title">request</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">GET /applications/testApp679-v1/signatures/2019-01-07T21_31_14 HTTP/1.1
 Accept: application/json
-Content-Type: */*
-Host: localhost:8080</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">response</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
-Content-Type: application/json;charset=UTF-8
-Content-Length: 666
-
-{
-  "publicKeyMod" : 23698408828387887007759056361929392323219724665396063078856163177015792510341269502958457041680859099048302187142387547902559760394423897674323086453292304548662059698923489979966384238005978204883680452838500985957344697762149482123438802018293592682324394020942208031620416714684132895518250366821850985779245436182595396996098117859633224960240827358404119961045841556308248323031792723431562716350672431131542004538232457954865018322165503196061135799831799764027463961376026405283664929889115038472546897421655373142792346765719606165972497574908771905007193674516987441082916876853628662717725937075475114130669,
-  "publicKeyExp" : 65537
-}</code></pre>
-</div>
-</div>
-<hr>
-<div class="listingblock">
-<div class="title">request</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">GET /applications HTTP/1.1
-Accept: */*
-Content-Type: application/json
-Host: localhost:8080</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">response</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
-Content-Type: application/json;charset=UTF-8
-Content-Length: 185
-
-[ "test145-v1", "testApp679-v1", "test306-v1", "testApp756-v1", "testApp010-v1", "test435-v1", "test670-v1", "test052-v1", "test046-v1", "test983-v1", "testApp039-v1", "testApp497-v1" ]</code></pre>
-</div>
-</div>
-<hr>
-<div class="listingblock">
-<div class="title">request</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">GET /roles/scribe6 HTTP/1.1
-Accept: */*
-Content-Type: application/json
-Host: localhost:8080</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">response</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
-Content-Type: application/json;charset=UTF-8
-Content-Length: 182
-
-{
-  "identifier" : "scribe6",
-  "permissions" : [ {
-    "permittableEndpointGroupIdentifier" : "identity__v1__roles",
-    "allowedOperations" : [ "READ", "CHANGE", "DELETE" ]
-  } ]
-}</code></pre>
-</div>
-</div>
-<hr>
-<div class="listingblock">
-<div class="title">request</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">GET /users/Ahmes_friend_Two/permissions HTTP/1.1
-Accept: */*
-Content-Type: application/json
-Host: localhost:8080</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">response</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
-Content-Type: application/json;charset=UTF-8
-Content-Length: 125
-
-[ {
-  "permittableEndpointGroupIdentifier" : "identity__v1__self",
-  "allowedOperations" : [ "READ", "CHANGE", "DELETE" ]
-} ]</code></pre>
-</div>
-</div>
-<hr>
-<div class="listingblock">
-<div class="title">request</div>
-<div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">PUT /applications/testApp039-v1/signatures/2019-01-07T21_30_42 HTTP/1.1
-Accept: application/json
-Content-Type: application/json
 Host: localhost:8080
-Content-Length: 666
+Content-Length: 250
 
 {
-  "publicKeyMod" : 25166214691790286735384163191744735862952736814132676797445322263658312116891723379167192777014222566629391722222450714891253445973041926910156344026651525020969080923185785716219710750628126607011145277528311663913679787928720911272724721635401122412222090479028003048960358172656894147449168766593466021298918574104131542166110902357625148073033907648865545995233381576371574226273904449750068561223643100423682717085579407490174972536151812919910362257878349050063977567525170087219364084920216676665667502771421297672860629650645764556963769394080380328567804686311257209403933036508299795273795456350870919187683,
-  "publicKeyExp" : 65537
+  "transactionType" : "ACCO",
+  "transactionDate" : "2019-01-08T06:46:31.542Z",
+  "customerIdentifier" : "CustomerOne",
+  "productIdentifier" : "product101",
+  "customerAccountIdentifier" : "Customer001",
+  "clerk" : "homer",
+  "amount" : 1234.56
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">response</div>
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
+Content-Type: application/json;charset=UTF-8
+Content-Length: 118
+
+{
+  "tellerTransactionIdentifier" : "cIDc9Xkm4UUfgnsqUX1rAjVmA9pVhaJI",
+  "totalAmount" : 1234.56,
+  "charges" : [ ]
+}</code></pre>
+</div>
+</div>
+<hr>
+<div class="listingblock">
+<div class="title">request</div>
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">POST /offices/moritavo/teller/689/commands HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+Host: localhost:8080
+Content-Length: 89
+
+{
+  "action" : "OPEN",
+  "adjustment" : "NONE",
+  "assignedEmployeeIdentifier" : "Ashu"
 }</code></pre>
 </div>
 </div>
@@ -1206,18 +743,80 @@ Content-Length: 666
 <div class="listingblock">
 <div class="title">request</div>
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">PUT /roles/scribe23 HTTP/1.1
-Accept: application/json
+<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">POST /teller/tellerpUM HTTP/1.1
 Content-Type: application/json
+Accept: application/json
 Host: localhost:8080
-Content-Length: 183
+
+command=PAUSE</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">response</div>
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 202 Accepted</code></pre>
+</div>
+</div>
+<hr>
+<div class="listingblock">
+<div class="title">request</div>
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">POST /teller/tellerpUM/drawer HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+Host: localhost:8080
+Content-Length: 56
+
+{"employeeIdentifier":"homer","password":"GXwNNSKW5DUC"}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">response</div>
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">HTTP/1.1 200 OK
+Content-Type: application/json;charset=UTF-8
+Content-Length: 559
 
 {
-  "identifier" : "scribe23",
-  "permissions" : [ {
-    "permittableEndpointGroupIdentifier" : "identity__v1__users",
-    "allowedOperations" : [ "READ", "CHANGE", "DELETE" ]
-  } ]
+  "code" : "tellerpUM",
+  "password" : null,
+  "cashdrawLimit" : 10000.0,
+  "tellerAccountIdentifier" : "telAccGAa",
+  "vaultAccountIdentifier" : "telAccydI",
+  "chequesReceivableAccount" : "cheqRecVSL",
+  "cashOverShortAccount" : "cashOSAccCYm",
+  "denominationRequired" : false,
+  "assignedEmployee" : "homer",
+  "state" : "ACTIVE",
+  "createdBy" : "homer",
+  "createdOn" : "2019-01-08T06:46:23.799Z",
+  "lastModifiedBy" : "homer",
+  "lastModifiedOn" : "2019-01-08T06:46:25.85Z",
+  "lastOpenedBy" : "homer",
+  "lastOpenedOn" : "2019-01-08T06:46:23.975Z"
+}</code></pre>
+</div>
+</div>
+<hr>
+<div class="listingblock">
+<div class="title">request</div>
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http" data-lang="http">PUT /offices/wakanda/teller/6789 HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+Host: localhost:8080
+Content-Length: 319
+
+{
+  "code" : "6789",
+  "password" : "aUYKkqobN",
+  "cashdrawLimit" : 15000.0,
+  "tellerAccountIdentifier" : "TEL6789Z1",
+  "vaultAccountIdentifier" : "TEL6789Z1",
+  "chequesReceivableAccount" : "ZHX2018ABZ",
+  "cashOverShortAccount" : "ZHX2018ABZ",
+  "denominationRequired" : true,
+  "assignedEmployee" : "Dioh Dione"
 }</code></pre>
 </div>
 </div>
@@ -1233,7 +832,7 @@ Content-Length: 183
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-01-08 08:46:47 +02:00
+Last updated 2019-01-08 08:46:48 +02:00
 </div>
 </div>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/github.min.css">
