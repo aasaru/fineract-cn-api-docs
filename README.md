@@ -18,8 +18,8 @@ This project contains both generated documentation as well as instructions how t
 your_workspace_dir/
                    fineract-cn-api-docs
                    fineract-cn-identity
-                   ineract-cn-customer
-                   ineract-cn-accounting
+                   fineract-cn-customer
+                   fineract-cn-accounting
                    ...
  
 ```
