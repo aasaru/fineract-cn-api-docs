@@ -33,7 +33,7 @@ generate_adoc () {
 }
 
 indexFile="src/main/resources/doc/html5/index.html"
-echo "<h1>Fineract API documentation</h1>" > "$indexFile"
+echo "<h1>Fineract API documentation</h1><ul>" > "$indexFile"
 
 generate_adoc 'test-transaction-type' 'accounting'
 generate_adoc 'test-identification-cards' 'customer'
@@ -43,6 +43,10 @@ generate_adoc 'test-identity' 'identity'
 generate_adoc 'test-payroll' 'payroll'
 generate_adoc 'test-teller' 'teller'
 
+echo "</ul><a href='https://github.com/aasaru/fineract-cn-api-docs/'>Info how to generate updated documentation yourself</a>" >> "$indexFile"
+
 ./gradlew asciidoctor
+
+echo "Completed generating files"
 
 

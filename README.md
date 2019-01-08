@@ -4,12 +4,12 @@ The aim of this project is to bring together all the generated Fineract-CN API d
 This project contains both generated documentation as well as instructions how to re-generate.
 
 
-## Browsing the docs
+## Browse generated documentation
 
-[Start here](https://aasaru.github.io/fineract-cn-api-docs/src/main/resources/doc/html5/index.html)
+[Start here](https://aasaru.github.io/fineract-cn-api-docs/src/main/resources/doc/html5/)
 
 
-## Re-generate the docs
+## Re-generate the documentation
 
 1. Clone this project next to other fineract-cn- projects. You need to have following directory structure:
 
